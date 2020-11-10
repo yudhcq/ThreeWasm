@@ -91,7 +91,7 @@ namespace Three::Math
     inline bool Frustum::IntersectsSphere(const Sphere &sphere) const
     {
         const auto &_center = sphere.Center();
-        const auto _negRadius = sphere.Radius();
+        const auto _negRadius = - sphere.Radius();
         for (const auto &_p : mPlanes)
         {
             if (_p.DistanceTo(_center) < _negRadius)

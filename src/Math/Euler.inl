@@ -82,7 +82,7 @@ namespace Three::Math
         mOrder = order == EulerOrder::NONE ? mOrder : order;
     }
 
-    inline void Euler::SetFromMatrix4(const Matrix4 &m,
+    inline void Euler::SetFromRotationMatrix(const Matrix4 &m,
                            const EulerOrder order)
     {
         const double _m11 = m[0], _m12 = m[4], _m13 = m[8];
@@ -180,7 +180,7 @@ namespace Three::Math
     {
         Matrix4 _m;
         _m.MakeRotationFromQuaternion(q);
-        SetFromMatrix4(_m, order);
+        SetFromRotationMatrix(_m, order);
     }
 
     inline void Euler::ReOrder(const EulerOrder newOrder)

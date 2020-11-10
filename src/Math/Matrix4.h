@@ -97,10 +97,12 @@ namespace Three::Math
 
         void Transpose() noexcept;
 
+        Matrix4 Transposed() const noexcept;
+
         void SetPosition(double x, double y, double z) noexcept;
         void SetPosition(const Vector3 &v) noexcept;
 
-        void GetInverse(const Matrix4 &m) noexcept;
+        Matrix4 GetInverse() const noexcept;
 
         void Scale(const Vector3 &s) noexcept;
 

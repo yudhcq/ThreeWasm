@@ -76,7 +76,7 @@ namespace Three::Math
         void Set(double x, double y, double z,
                  const EulerOrder order = EulerOrder::NONE) noexcept;
 
-        void SetFromMatrix4(const Matrix4 &matrix,
+        void SetFromRotationMatrix(const Matrix4 &matrix,
                  const EulerOrder order = EulerOrder::NONE);
 
         void SetFromQuaternion(const Quaternion &q,

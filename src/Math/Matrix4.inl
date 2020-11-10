@@ -429,6 +429,13 @@ namespace Three::Math
         mElements[14] = _tmp;
     }
 
+    inline Matrix4 Matrix4::Transposed() const noexcept
+    {
+        Matrix4 _m(*this);
+        _m.Transpose();
+        return _m;
+    }
+
     inline void Matrix4::SetPosition(double x, double y, double z) noexcept
     {
         mElements[12] = x;
@@ -441,12 +448,14 @@ namespace Three::Math
         SetPosition(v.X(), v.Y(), v.Z());
     }
 
-    inline void Matrix4::GetInverse(const Matrix4 &m) noexcept
+    inline Matrix4 Matrix4::GetInverse() const noexcept
     {
-        const double _n11 = m[0], _n21 = m[1], _n31 = m[2], _n41 = m[3];
-        const double _n12 = m[4], _n22 = m[5], _n32 = m[6], _n42 = m[7];
-        const double _n13 = m[8], _n23 = m[9], _n33 = m[10], _n43 = m[11];
-        const double _n14 = m[12], _n24 = m[13], _n34 = m[14], _n44 = m[15];
+        Matrix4 _m;
+
+        const double _n11 = mElements[0], _n21 = mElements[1], _n31 = mElements[2], _n41 = mElements[3];
+        const double _n12 = mElements[4], _n22 = mElements[5], _n32 = mElements[6], _n42 = mElements[7];
+        const double _n13 = mElements[8], _n23 = mElements[9], _n33 = mElements[10], _n43 = mElements[11];
+        const double _n14 = mElements[12], _n24 = mElements[13], _n34 = mElements[14], _n44 = mElements[15];
 
         const double _t11 = _n23 * _n34 * _n42 - _n24 * _n33 * _n42 + _n24 * _n32 * _n43 - _n22 * _n34 * _n43 - _n23 * _n32 * _n44 + _n22 * _n33 * _n44;
         const double _t12 = _n14 * _n33 * _n42 - _n13 * _n34 * _n42 - _n14 * _n32 * _n43 + _n12 * _n34 * _n43 + _n13 * _n32 * _n44 - _n12 * _n33 * _n44;
@@ -457,32 +466,33 @@ namespace Three::Math
 
         if (_det == 0.)
         {
-            Set(0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.);
+            _m.Set(0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.);
         }
         else
         {
             const double _detInv = 1 / _det;
 
-            mElements[0] = _t11 * _detInv;
-            mElements[1] = (_n24 * _n33 * _n41 - _n23 * _n34 * _n41 - _n24 * _n31 * _n43 + _n21 * _n34 * _n43 + _n23 * _n31 * _n44 - _n21 * _n33 * _n44) * _detInv;
-            mElements[2] = (_n22 * _n34 * _n41 - _n24 * _n32 * _n41 + _n24 * _n31 * _n42 - _n21 * _n34 * _n42 - _n22 * _n31 * _n44 + _n21 * _n32 * _n44) * _detInv;
-            mElements[3] = (_n23 * _n32 * _n41 - _n22 * _n33 * _n41 - _n23 * _n31 * _n42 + _n21 * _n33 * _n42 + _n22 * _n31 * _n43 - _n21 * _n32 * _n43) * _detInv;
+            _m[0] = _t11 * _detInv;
+            _m[1] = (_n24 * _n33 * _n41 - _n23 * _n34 * _n41 - _n24 * _n31 * _n43 + _n21 * _n34 * _n43 + _n23 * _n31 * _n44 - _n21 * _n33 * _n44) * _detInv;
+            _m[2] = (_n22 * _n34 * _n41 - _n24 * _n32 * _n41 + _n24 * _n31 * _n42 - _n21 * _n34 * _n42 - _n22 * _n31 * _n44 + _n21 * _n32 * _n44) * _detInv;
+            _m[3] = (_n23 * _n32 * _n41 - _n22 * _n33 * _n41 - _n23 * _n31 * _n42 + _n21 * _n33 * _n42 + _n22 * _n31 * _n43 - _n21 * _n32 * _n43) * _detInv;
 
-            mElements[4] = _t12 * _detInv;
-            mElements[5] = (_n13 * _n34 * _n41 - _n14 * _n33 * _n41 + _n14 * _n31 * _n43 - _n11 * _n34 * _n43 - _n13 * _n31 * _n44 + _n11 * _n33 * _n44) * _detInv;
-            mElements[6] = (_n14 * _n32 * _n41 - _n12 * _n34 * _n41 - _n14 * _n31 * _n42 + _n11 * _n34 * _n42 + _n12 * _n31 * _n44 - _n11 * _n32 * _n44) * _detInv;
-            mElements[7] = (_n12 * _n33 * _n41 - _n13 * _n32 * _n41 + _n13 * _n31 * _n42 - _n11 * _n33 * _n42 - _n12 * _n31 * _n43 + _n11 * _n32 * _n43) * _detInv;
+            _m[4] = _t12 * _detInv;
+            _m[5] = (_n13 * _n34 * _n41 - _n14 * _n33 * _n41 + _n14 * _n31 * _n43 - _n11 * _n34 * _n43 - _n13 * _n31 * _n44 + _n11 * _n33 * _n44) * _detInv;
+            _m[6] = (_n14 * _n32 * _n41 - _n12 * _n34 * _n41 - _n14 * _n31 * _n42 + _n11 * _n34 * _n42 + _n12 * _n31 * _n44 - _n11 * _n32 * _n44) * _detInv;
+            _m[7] = (_n12 * _n33 * _n41 - _n13 * _n32 * _n41 + _n13 * _n31 * _n42 - _n11 * _n33 * _n42 - _n12 * _n31 * _n43 + _n11 * _n32 * _n43) * _detInv;
 
-            mElements[8] = _t13 * _detInv;
-            mElements[9] = (_n14 * _n23 * _n41 - _n13 * _n24 * _n41 - _n14 * _n21 * _n43 + _n11 * _n24 * _n43 + _n13 * _n21 * _n44 - _n11 * _n23 * _n44) * _detInv;
-            mElements[10] = (_n12 * _n24 * _n41 - _n14 * _n22 * _n41 + _n14 * _n21 * _n42 - _n11 * _n24 * _n42 - _n12 * _n21 * _n44 + _n11 * _n22 * _n44) * _detInv;
-            mElements[11] = (_n13 * _n22 * _n41 - _n12 * _n23 * _n41 - _n13 * _n21 * _n42 + _n11 * _n23 * _n42 + _n12 * _n21 * _n43 - _n11 * _n22 * _n43) * _detInv;
+            _m[8] = _t13 * _detInv;
+            _m[9] = (_n14 * _n23 * _n41 - _n13 * _n24 * _n41 - _n14 * _n21 * _n43 + _n11 * _n24 * _n43 + _n13 * _n21 * _n44 - _n11 * _n23 * _n44) * _detInv;
+            _m[10] = (_n12 * _n24 * _n41 - _n14 * _n22 * _n41 + _n14 * _n21 * _n42 - _n11 * _n24 * _n42 - _n12 * _n21 * _n44 + _n11 * _n22 * _n44) * _detInv;
+            _m[11] = (_n13 * _n22 * _n41 - _n12 * _n23 * _n41 - _n13 * _n21 * _n42 + _n11 * _n23 * _n42 + _n12 * _n21 * _n43 - _n11 * _n22 * _n43) * _detInv;
 
-            mElements[12] = _t14 * _detInv;
-            mElements[13] = (_n13 * _n24 * _n31 - _n14 * _n23 * _n31 + _n14 * _n21 * _n33 - _n11 * _n24 * _n33 - _n13 * _n21 * _n34 + _n11 * _n23 * _n34) * _detInv;
-            mElements[14] = (_n14 * _n22 * _n31 - _n12 * _n24 * _n31 - _n14 * _n21 * _n32 + _n11 * _n24 * _n32 + _n12 * _n21 * _n34 - _n11 * _n22 * _n34) * _detInv;
-            mElements[15] = (_n12 * _n23 * _n31 - _n13 * _n22 * _n31 + _n13 * _n21 * _n32 - _n11 * _n23 * _n32 - _n12 * _n21 * _n33 + _n11 * _n22 * _n33) * _detInv;
+            _m[12] = _t14 * _detInv;
+            _m[13] = (_n13 * _n24 * _n31 - _n14 * _n23 * _n31 + _n14 * _n21 * _n33 - _n11 * _n24 * _n33 - _n13 * _n21 * _n34 + _n11 * _n23 * _n34) * _detInv;
+            _m[14] = (_n14 * _n22 * _n31 - _n12 * _n24 * _n31 - _n14 * _n21 * _n32 + _n11 * _n24 * _n32 + _n12 * _n21 * _n34 - _n11 * _n22 * _n34) * _detInv;
+            _m[15] = (_n12 * _n23 * _n31 - _n13 * _n22 * _n31 + _n13 * _n21 * _n32 - _n11 * _n23 * _n32 - _n12 * _n21 * _n33 + _n11 * _n22 * _n33) * _detInv;
         }
+        return _m;
     }
 
     inline void Matrix4::Scale(const Vector3 &s) noexcept
@@ -758,7 +768,7 @@ namespace Three::Math
 
     inline std::ostream &operator<<(std::ostream &os, const Matrix4 &m)
     {
-        os << "{type:Matrix4,"
+        os << "{type:'Matrix4',"
            << "elements:["
            << m[0] << ","
            << m[1] << ","

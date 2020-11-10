@@ -35,7 +35,7 @@ namespace ThreeUnitTest
 
 	static const double nanDouble = numeric_limits<double>::quiet_NaN();
 
-	static void AssetAlmosetEqules(double l, double r, const wchar_t* message)
+	static void AssetAlmosetEqules(double l, double r, const wchar_t* message = L"pass")
 	{
 		Microsoft::VisualStudio::CppUnitTestFramework::Assert::IsTrue(Three::Math::MathUtil::AlmosetEquals(l, r), message);
 	}

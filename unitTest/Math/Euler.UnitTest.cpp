@@ -45,7 +45,7 @@ namespace ThreeUnitTest
 			_e.Set(1.,2.,3.,EulerOrder::XYZ);
 			Assert::IsTrue(_e == Euler(1., 2., 3., EulerOrder::XYZ));
 		}
-		TEST_METHOD(SetFromMatrix4)
+		TEST_METHOD(SetFromRotationMatrix)
 		{
 			Euler _es[3] = { ZeroEuler, EulerAxyz, EulerAzyx };
 			for (const auto& _e : _es)
@@ -53,7 +53,7 @@ namespace ThreeUnitTest
 				Matrix4 _m, _m1;
 				_m.MakeRotationFromEuler(_e);
 				Euler _e1;
-				_e1.SetFromMatrix4(_m, _e.Order());
+				_e1.SetFromRotationMatrix(_m, _e.Order());
 				_m1.MakeRotationFromEuler(_e1);
 
 				Assert::IsTrue(_m == _m1, L"SetFromMatrix");
