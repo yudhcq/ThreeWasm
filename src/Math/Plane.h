@@ -47,17 +47,24 @@ namespace Three::Math
 
         void Set(double nx, double ny, double nz, double constant) noexcept;
 
+        double operator[](size_t index) const;
+
+        double& operator[](size_t index);
+
         void SetFromNormalAndCopanarPoint(const Vector3 &normal, const Vector3 &point) noexcept;
 
         void SetFromCoplanarPoints(const Vector3 &a, const Vector3 &b, const Vector3 &c) noexcept;
 
         void Normalize() noexcept;
 
+        Plane Normalized() const noexcept;
+
         void Negate() noexcept;
+        Plane Negated() const noexcept;
 
         double DistanceTo(const Vector3 &point) const noexcept;
 
-        double DistanceToSphere(const Sphere &sphere) const noexcept;
+        double DistanceTo(const Sphere &sphere) const noexcept;
 
         Vector3 ProjectPoint(const Vector3 &point) const noexcept;
 
@@ -80,6 +87,8 @@ namespace Three::Math
                                    const Matrix3 &optionalNormalMatrix) const noexcept;
 
         void Translate(const Vector3 &offset) noexcept;
+
+        Plane Translated(const Vector3 &offset) const noexcept;
 
         bool Equals(const Plane &plane, uint32_t ulp = 4u) const noexcept;
         bool operator==(const Plane &plane) const noexcept;

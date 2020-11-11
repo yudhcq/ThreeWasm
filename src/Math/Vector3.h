@@ -56,8 +56,8 @@ namespace Three::Math
 		 * @return const double 
 		 * @exception range_error
 		 */
-		const double operator[](const size_t index) const;
-		double &operator[](const size_t index);
+		double operator[](const size_t index) const;
+        double& operator[](const size_t index);
 
 		void operator+=(const Vector3 &v) noexcept;
 		void operator+=(double s) noexcept;
@@ -169,6 +169,8 @@ namespace Three::Math
 
 		void Negate() noexcept;
 
+		Vector3 Negated() const noexcept;
+
 		Vector3 operator-(void) const noexcept;
 
 		double Dot(const Vector3 &v) const noexcept;
@@ -249,6 +251,11 @@ namespace Three::Math
 		 * 
 		 */
 		double mZ;
+
+	public:
+		const static Vector3 UINT_X;
+		const static Vector3 UINT_Y;
+		const static Vector3 UINT_Z;
 	};
 } // namespace Three::Math
 

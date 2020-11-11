@@ -19,6 +19,10 @@ using namespace std;
 
 namespace Three::Math
 {
+    inline const Vector3 Vector3::UINT_X(1., 0., 0.);
+    inline const Vector3 Vector3::UINT_Y(0., 1., 0.);
+    inline const Vector3 Vector3::UINT_Z(0., 0., 1.);
+
     inline Vector3::Vector3() noexcept : mX(0.),
                                          mY(0.),
                                          mZ(0.)
@@ -79,9 +83,9 @@ namespace Three::Math
         mX = mY = mZ = scalar;
     }
 
-    inline const double Vector3::operator[](const size_t index) const
+    inline double Vector3::operator[](const size_t index) const
     {
-        if (index > 3)
+        if (index > 2)
         {
             throw range_error("const Vector3 operator[] 下标超出索引");
         }
@@ -93,7 +97,7 @@ namespace Three::Math
 
     inline double &Vector3::operator[](const size_t index)
     {
-        if (index > 3)
+        if (index > 2)
         {
             throw range_error("Vector3 operator[] 下标超出索引");
         }
@@ -477,6 +481,13 @@ namespace Three::Math
         mX = -mX;
         mY = -mY;
         mZ = -mZ;
+    }
+
+    inline Vector3 Vector3::Negated() const noexcept
+    {
+        Vector3 _v(*this);
+        _v.Negate();
+        return _v;
     }
 
     inline Vector3 Vector3::operator-(void) const noexcept

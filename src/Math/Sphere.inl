@@ -87,7 +87,7 @@ namespace Three::Math
 
     inline bool Sphere::Intersects(const Plane &plane) const noexcept
     {
-        return abs(plane.DistanceTo(mCenter)) < mRadius;
+        return abs(plane.DistanceTo(mCenter)) <= mRadius;
     }
 
     inline Vector3 Sphere::ClampPoint(const Vector3 &point) const noexcept

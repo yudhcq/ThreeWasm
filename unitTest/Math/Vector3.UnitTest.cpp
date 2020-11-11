@@ -51,14 +51,11 @@ namespace ThreeUnitTest
 			_v[2] = 3.;
 			AssetAlmosetEqules(3., _v.Z(), L"SetComponent 2");
 			AssetAlmosetEqules(_v[2], _v.Z(), L"SetComponent 2");
-			try
+
+			Assert::ExpectException<range_error>([_v]() 
 			{
 				double _value = _v[3];
-			}
-			catch (const std::exception& e)
-			{
-				Assert::IsTrue(e.what() == "Vector3 operator[] 下标超出索引", L"SetComponent 3");
-			}
+			});
 		}
 		TEST_METHOD(Equals)
 		{
