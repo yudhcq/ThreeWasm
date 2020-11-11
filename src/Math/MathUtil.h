@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_MathUtil_HeadFile
-#define _ThreeMath_MathUtil_HeadFile
 #include <string>
 
 /**
@@ -86,4 +84,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "MathUtil.inl"
-#endif

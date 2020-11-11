@@ -9,8 +9,6 @@
  */
 
 #pragma once
-#ifndef _ThreeMath_Line3_HeadFile
-#define _ThreeMath_Line3_HeadFile
 #include <ostream>
 
 #include "Vector3.h"
@@ -82,4 +80,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Line3.inl"
-#endif

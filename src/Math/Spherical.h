@@ -8,8 +8,6 @@
  */
 
 #pragma once
-#ifndef _ThreeMath_Spherical_HeadFile
-#define _ThreeMath_Spherical_HeadFile
 #include <ostream>
 
 namespace Three::Math
@@ -68,4 +66,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Spherical.inl"
-#endif

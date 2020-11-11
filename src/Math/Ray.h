@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_Ray_HeadFile
-#define _ThreeMath_Ray_HeadFile
 #include <memory>
 #include <ostream>
 
@@ -106,4 +104,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Ray.inl"
-#endif

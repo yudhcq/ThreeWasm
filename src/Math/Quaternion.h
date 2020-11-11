@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_Quaternion_HeadFile
-#define _ThreeMath_Quaternion_HeadFile
 #include <vector>
 #include <ostream>
 
@@ -120,4 +118,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Quaternion.inl"
-#endif

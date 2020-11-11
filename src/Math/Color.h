@@ -8,8 +8,6 @@
  */
 
 #pragma once
-#ifndef _ThreeMath_Color_HeadFile
-#define _ThreeMath_Color_HeadFile
 #include <string>
 #include <stdint.h>
 #include <ostream>
@@ -153,4 +151,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Color.inl"
-#endif

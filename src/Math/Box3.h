@@ -8,8 +8,6 @@
  */
 
 #pragma once
-#ifndef _ThreeMath_Box3_HeadFile
-#define _ThreeMath_Box3_HeadFile
 #include <vector>
 #include <ostream>
 
@@ -301,4 +299,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Box3.inl"
-#endif

@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_Euler_HeadFile
-#define _ThreeMath_Euler_HeadFile
 #include <stdint.h>
 #include <ostream>
 
@@ -120,4 +118,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Euler.inl"
-#endif

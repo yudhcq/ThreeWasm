@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_Triangle_HeadFile
-#define _ThreeMath_Triangle_HeadFile
 #include <vector>
 #include <ostream>
 
@@ -117,4 +115,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Triangle.inl"
-#endif

@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_SphericalHarmonics3_HeadFile
-#define _ThreeMath_SphericalHarmonics3_HeadFile
 #include <vector>
 #include <ostream>
 
@@ -67,4 +65,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "SphericalHarmonics3.inl"
-#endif

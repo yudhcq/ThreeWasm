@@ -145,7 +145,7 @@ namespace ThreeUnitTest
 				Matrix4 _m3;
 				_m3.ExtractRotation(_m2);
 				Euler _euler3;
-				_euler3.SetFromRotationMatrix(_m3);
+				_euler3.SetFromRotationMatrix(_m3, _euler.Order());
 				Assert::IsTrue(_m == _m3);
 				Assert::IsTrue(_euler == _euler3);
 			}
@@ -173,6 +173,7 @@ namespace ThreeUnitTest
 		{
 			Matrix4 _lhs(2., 3., 5., 7., 11., 13., 17., 19., 23., 29., 31., 37., 41., 43., 47., 53.);
 			Matrix4 _rhs(59., 61., 67., 71., 73., 79., 83., 89., 97., 101., 103., 107., 109., 113., 127., 131.);
+			Matrix4 _lhs1(_lhs);
 			_lhs *= _rhs;
 			AssetAlmosetEqules(_lhs[0], 1585.);
 			AssetAlmosetEqules(_lhs[1], 5318.);
@@ -190,24 +191,23 @@ namespace ThreeUnitTest
 			AssetAlmosetEqules(_lhs[13], 6246.);
 			AssetAlmosetEqules(_lhs[14], 12378.);
 			AssetAlmosetEqules(_lhs[15], 18710.);
-			Matrix4 _lhs1(_lhs);
-			_lhs = _lhs * _rhs;
-			AssetAlmosetEqules(_lhs[0], 1585.);
-			AssetAlmosetEqules(_lhs[1], 5318.);
-			AssetAlmosetEqules(_lhs[2], 10514.);
-			AssetAlmosetEqules(_lhs[3], 15894.);
-			AssetAlmosetEqules(_lhs[4], 1655.);
-			AssetAlmosetEqules(_lhs[5], 5562.);
-			AssetAlmosetEqules(_lhs[6], 11006.);
-			AssetAlmosetEqules(_lhs[7], 16634.);
-			AssetAlmosetEqules(_lhs[8], 1787.);
-			AssetAlmosetEqules(_lhs[9], 5980.);
-			AssetAlmosetEqules(_lhs[10], 11840.);
-			AssetAlmosetEqules(_lhs[11], 17888.);
-			AssetAlmosetEqules(_lhs[12], 1861.);
-			AssetAlmosetEqules(_lhs[13], 6246.);
-			AssetAlmosetEqules(_lhs[14], 12378.);
-			AssetAlmosetEqules(_lhs[15], 18710.);
+			_lhs1 = _lhs1 * _rhs;
+			AssetAlmosetEqules(_lhs1[0], 1585.);
+			AssetAlmosetEqules(_lhs1[1], 5318.);
+			AssetAlmosetEqules(_lhs1[2], 10514.);
+			AssetAlmosetEqules(_lhs1[3], 15894.);
+			AssetAlmosetEqules(_lhs1[4], 1655.);
+			AssetAlmosetEqules(_lhs1[5], 5562.);
+			AssetAlmosetEqules(_lhs1[6], 11006.);
+			AssetAlmosetEqules(_lhs1[7], 16634.);
+			AssetAlmosetEqules(_lhs1[8], 1787.);
+			AssetAlmosetEqules(_lhs1[9], 5980.);
+			AssetAlmosetEqules(_lhs1[10], 11840.);
+			AssetAlmosetEqules(_lhs1[11], 17888.);
+			AssetAlmosetEqules(_lhs1[12], 1861.);
+			AssetAlmosetEqules(_lhs1[13], 6246.);
+			AssetAlmosetEqules(_lhs1[14], 12378.);
+			AssetAlmosetEqules(_lhs1[15], 18710.);
 		}
 		TEST_METHOD(MultiplyScalar)
 		{

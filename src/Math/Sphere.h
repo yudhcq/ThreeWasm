@@ -8,8 +8,6 @@
  */
 
 #pragma once
-#ifndef _ThreeMath_Sphere_HeadFile
-#define _ThreeMath_Sphere_HeadFile
 #include <vector>
 #include <ostream>
 
@@ -89,4 +87,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Sphere.inl"
-#endif

@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_Plane_HeadFile
-#define _ThreeMath_Plane_HeadFile
 #include <memory>
 #include <ostream>
 
@@ -90,17 +88,16 @@ namespace Three::Math
 
     private:
         /**
-     * @brief normal
-     * 平面法向量
-     */
+         * @brief normal
+         * 平面法向量
+         */
         Vector3 mNormal;
         /**
-     * @brief constant
-     * 平面上的点距离原点的最近距离
-     */
+         * @brief constant
+         * 平面上的点距离原点的最近距离
+         */
         double mConstant;
     };
 } // namespace Three::Math
 
 #include "Plane.inl"
-#endif

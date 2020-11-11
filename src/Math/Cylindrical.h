@@ -8,8 +8,6 @@
  */
 
 #pragma once
-#ifndef _ThreeMath_Cylindical_HeadFile
-#define _ThreeMath_Culindical_HeadFile
 #include <ostream>
 /**
  * @brief Three::Math
@@ -68,4 +66,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Cylindrical.inl"
-#endif

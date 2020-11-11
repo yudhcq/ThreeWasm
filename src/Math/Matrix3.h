@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_Matrix3_HeadFile
-#define _ThreeMath_Matrix3_HeadFile
 #include <vector>
 #include <ostream>
 
@@ -107,5 +105,4 @@ namespace Three::Math
     };
 } // namespace Three::Math
 
-#include "Matrix3.inl"          
-#endif
+#include "Matrix3.inl"

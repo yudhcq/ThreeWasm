@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_Vector2_HeadFile
-#define _ThreeMath_Vector2_HeadFile
 #include <ostream>
 #include <vector>
 
@@ -539,4 +537,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Vector2.inl"
-#endif

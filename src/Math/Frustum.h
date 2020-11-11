@@ -8,8 +8,6 @@
  */
 
 #pragma once
-#ifndef _ThreeMath_Frustum_HeadFile
-#define _ThreeMath_Frustum_HeadFile
 #include <vector>
 #include <ostream>
 
@@ -63,4 +61,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Frustum.inl"
-#endif

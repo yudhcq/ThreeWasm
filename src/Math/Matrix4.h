@@ -7,8 +7,6 @@
  * 
  */
 #pragma once
-#ifndef _ThreeMath_Matrix4_HeadFile
-#define _ThreeMath_Matrix4_HeadFile
 #include <vector>
 #include <ostream>
 
@@ -164,4 +162,3 @@ namespace Three::Math
 } // namespace Three::Math
 
 #include "Matrix4.inl"
-#endif
