@@ -45,6 +45,7 @@ namespace Three::Math
         void LookAt(const Vector3 &v) noexcept;
 
         void Recast(double t) noexcept;
+        Ray Recasted(double t) const noexcept;
 
         Vector3 ClosestPointToPoint(const Vector3 &point) const;
 

@@ -105,7 +105,7 @@ namespace Three::Math
             }
             break;
         case EulerOrder::YXZ:
-            mX = asin(-MathUtil::Clamp(_m23, -1., -1.));
+            mX = asin(-MathUtil::Clamp(_m23, -1., 1.));
             if (abs(_m23) < 0.9999999)
             {
                 mY = atan2(_m13, _m33);

@@ -65,6 +65,7 @@ namespace Three::Math
         void Inverse() noexcept;
 
         void Conjugate() noexcept;
+        Quaternion Conjugated() const noexcept;
 
         double Dot(const Quaternion &q) const noexcept;
 
@@ -73,12 +74,13 @@ namespace Three::Math
         double Length() const noexcept;
 
         void Normalize() noexcept;
+        Quaternion Normalized() const noexcept;
 
         void operator*=(const Quaternion &q) noexcept;
 
         void Premultiply(const Quaternion &q) noexcept;
 
-        Quaternion PreMultiplied(const Quaternion &q) const noexcept;
+        Quaternion Premultiplied(const Quaternion &q) const noexcept;
 
         Quaternion operator*(const Quaternion &q) const noexcept;
 
@@ -87,6 +89,8 @@ namespace Three::Math
         void Slerp(const Quaternion &qb, double t) noexcept;
 
         Quaternion Slerped(const Quaternion &qb, double t) const noexcept;
+
+        void Identity() noexcept;
 
         bool Equals(const Quaternion &q, uint32_t ulp = 4u) const noexcept;
         bool operator==(const Quaternion &q) const noexcept;

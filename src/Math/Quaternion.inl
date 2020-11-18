@@ -250,6 +250,13 @@ namespace Three::Math
         mZ *= -1.;
     }
 
+    inline Quaternion Quaternion::Conjugated() const noexcept
+    {
+        Quaternion _q(*this);
+        _q.Conjugate();
+        return _q;
+    }
+
     inline double Quaternion::Dot(const Quaternion &q) const noexcept
     {
         return mX * q.mX + mY * q.mY + mZ * q.mZ + mW * q.mW;
@@ -282,6 +289,13 @@ namespace Three::Math
         }
     }
 
+    inline Quaternion Quaternion::Normalized() const noexcept
+    {
+        Quaternion _q(*this);
+        _q.Normalize();
+        return _q;
+    }
+
     inline void Quaternion::operator*=(const Quaternion &q) noexcept
     {
         *this = *this * q;
@@ -292,7 +306,7 @@ namespace Three::Math
         *this = q * *this;
     }
 
-    inline Quaternion Quaternion::PreMultiplied(const Quaternion &q) const noexcept
+    inline Quaternion Quaternion::Premultiplied(const Quaternion &q) const noexcept
     {
         return q * *this;
     }
@@ -300,8 +314,8 @@ namespace Three::Math
     inline Quaternion Quaternion::operator*(const Quaternion &q) const noexcept
     {
         return Quaternion(mX * q.mW + mW * q.mX + mY * q.mZ - mZ * q.mY,
-                          mY * q.mW + mW * q.mY + mZ * q.mX - q.mX * q.mZ,
-                          mZ * q.mW + mZ * q.mW + mX * q.mY - mY * q.mX,
+                          mY * q.mW + mW * q.mY + mZ * q.mX - mX * q.mZ,
+                          mZ * q.mW + mW * q.mZ + mX * q.mY - mY * q.mX,
                           mW * q.mW - mX * q.mX - mY * q.mY - mZ * q.mZ);
     }
 
@@ -376,6 +390,14 @@ namespace Three::Math
         return _q;
     }
 
+    inline void Quaternion::Identity() noexcept
+    {
+        mX = 0.;
+        mY = 0.;
+        mZ = 0.;
+        mW = 1.;
+    }
+
     inline bool Quaternion::Equals(const Quaternion &q, uint32_t ulp) const noexcept
     {
         return MathUtil::AlmosetEquals(mX, q.mX, ulp) &&
@@ -391,7 +413,7 @@ namespace Three::Math
 
     inline ostream &operator<<(ostream &os, const Quaternion &q)
     {
-        os << "{type:Quaternion,x:"
+        os << "{type:'Quaternion',x:"
            << q.X()
            << ",y:"
            << q.Y()

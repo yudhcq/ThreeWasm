@@ -56,6 +56,13 @@ namespace Three::Math
         mOrigin = At(t);
     }
 
+    inline Ray Ray::Recasted(double t) const noexcept
+    {
+        Ray _r(*this);
+        _r.Recast(t);
+        return _r;
+    }
+
     inline Vector3 Ray::ClosestPointToPoint(const Vector3 &point) const
     {
         Vector3 _v(point - mOrigin);
