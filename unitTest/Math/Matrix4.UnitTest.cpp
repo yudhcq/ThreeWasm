@@ -306,33 +306,175 @@ namespace ThreeUnitTest
 			_testMatrices[10].MakeTranslation(1., 2., 3.);
 		}
 		TEST_METHOD(Scale)
-		{}
+		{
+			Matrix4 _a(1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12., 13., 14., 15., 16);
+			Vector3 _b(2., 3., 4.);
+			Matrix4 _c(2., 6., 12., 4., 10., 18., 28., 8., 18., 30., 44., 12., 26., 42., 60., 16);
+
+			Assert::IsTrue(_a.Scaled(_b) == _c);
+		}
+
 		TEST_METHOD(GetMaxScaleOnAxis)
-		{}
+		{
+			Matrix4 _a(1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12., 13., 14., 15., 16);
+			Assert::IsTrue(MathUtil::AlmosetEquals(_a.GetMaxScaleOnAxis(), sqrt(9. + 49. + 121.)));
+		}
 		TEST_METHOD(MakeTranslation)
-		{}
+		{
+			Matrix4 _a;
+			Vector3 _b(2., 3., 4.);
+			Matrix4 _c(1, 0, 0, 2, 0, 1, 0, 3, 0, 0, 1, 4, 0, 0, 0, 1);
+			_a.MakeTranslation(_b.X(), _b.Y(), _b.Z());
+			Assert::IsTrue(_a == _c);
+		}	
 		TEST_METHOD(MakeRotationX)
-		{}
+		{
+			Matrix4 _a;
+			const double _b = sqrt(3.) / 2.;
+			Matrix4 _c(1, 0, 0, 0, 0, _b, -0.5, 0, 0, 0.5, _b, 0, 0, 0, 0, 1);
+			_a.MakeRotationX(M_PI / 6.);
+			Assert::IsTrue(_a == _c);
+		}
 		TEST_METHOD(MakeRotationY)
-		{}
+		{
+			Matrix4 _a;
+			const double _b = sqrt(3.) / 2.;
+			Matrix4 _c(_b, 0, 0.5, 0, 0, 1, 0, 0, -0.5, 0, _b, 0, 0, 0, 0, 1);
+			_a.MakeRotationY(M_PI / 6.);
+			Assert::IsTrue(_a == _c);
+		}
 		TEST_METHOD(MakeRotationZ)
-		{}
+		{
+			Matrix4 _a;
+			const double _b = sqrt(3.) / 2.;
+			Matrix4 _c(_b, -0.5, 0, 0, 0.5, _b, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+			_a.MakeRotationZ(M_PI / 6.);
+			Assert::IsTrue(_a == _c);
+		}
 		TEST_METHOD(MakeRotationAxis)
-		{}
+		{
+			Vector3 _axis(1.5, 0, 1.);
+			_axis.Normalize();
+			const double _radians = MathUtil::DegToRad(45.);
+			Matrix4 _a;
+			_a.MakeRotationAxis(_axis, _radians);
+
+			Assert::IsTrue(_a == Matrix4(0.9098790095958609, -0.39223227027636803, 0.13518148560620882, 0,
+				0.39223227027636803, 0.7071067811865476, -0.588348405414552, 0,
+				0.13518148560620882, 0.588348405414552, 0.7972277715906868, 0,
+				0, 0, 0, 1));
+		}
 		TEST_METHOD(MakeScale)
-		{}
+		{
+			Matrix4 _a;
+			Matrix4 _c(2, 0, 0, 0, 0, 3, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1);
+			_a.MakeScale(2., 3., 4.);
+			Assert::IsTrue(_a == _c);
+		}
 		TEST_METHOD(MakeShear)
-		{}
+		{
+			Matrix4 _a;
+			Matrix4 _c(1, 3, 4, 0, 2, 1, 4, 0, 2, 3, 1, 0, 0, 0, 0, 1);
+			_a.MakeShear(2., 3., 4.);
+			Assert::IsTrue(_a == _c);
+		}
 		TEST_METHOD(Compose_Decompose)
-		{}
+		{
+			vector<Vector3> _tValues;
+			_tValues.push_back(Vector3());
+			_tValues.push_back(Vector3(3, 0, 0));
+			_tValues.push_back(Vector3(0, 4, 0));
+			_tValues.push_back(Vector3(0, 0, 5));
+			_tValues.push_back(Vector3(-6, 0, 0));
+			_tValues.push_back(Vector3(0, -7, 0));
+			_tValues.push_back(Vector3(0, 0, -8));
+			_tValues.push_back(Vector3(-2, 5, -9));
+			_tValues.push_back(Vector3(-2, -5, -9));
+
+			vector<Vector3> _sValues;
+			_sValues.push_back(Vector3(1));
+			_sValues.push_back(Vector3(2));
+			_sValues.push_back(Vector3(1, -1, 1));
+			_sValues.push_back(Vector3(-1, 1, 1));
+			_sValues.push_back(Vector3(1, 1, -1));
+			_sValues.push_back(Vector3(2, -2, 1));
+			_sValues.push_back(Vector3(-1, 2, -2));
+			_sValues.push_back(Vector3(-1, -1, -1));
+			_sValues.push_back(Vector3(-2, -2, -2));
+
+			vector<Quaternion> _rValues;
+			Quaternion _q;
+			_rValues.push_back(Quaternion());
+			_q.SetFromEuler(Euler(1.,1.,0.));
+			_rValues.push_back(_q);
+			_q.SetFromEuler(Euler(1., -1., 1.));
+			_rValues.push_back(_q);
+			_rValues.push_back(Quaternion(0, 0.9238795292366128, 0, 0.38268342717215614));
+
+			Matrix4 _m, _m2;
+			Vector3 _t, _s;
+			Quaternion _r;
+
+			for (const auto& t : _tValues) 
+			{
+				for (const auto& s : _sValues)
+				{
+					for (const auto& r : _rValues)
+					{
+						_m.Compose(t, r, s);
+						_m.Decompose(_t, _r, _s);
+						_m2.Compose(_t, _r, _s);
+						Assert::IsTrue(_m == _m2);
+					}
+				}
+			}
+		}
 		TEST_METHOD(MakePerspective)
-		{}
+		{
+			Matrix4 _a;
+			_a.MakePerspective(-1, 1, -1, 1, 1, 100);
+			Matrix4 _excepted
+			(
+				1, 0, 0, 0,
+				0, -1, 0, 0,
+				0, 0, -101. / 99., -200. / 99.,
+				0, 0, -1, 0
+			);
+
+			Assert::IsTrue(_a == _excepted);
+		}
 		TEST_METHOD(MakeOrthograph)
-		{}
+		{
+			Matrix4 _a;
+			_a.MakeOrthographic(-1, 1, -1, 1, 1, 100);
+			Matrix4 _excepted
+			(
+				1, 0, 0, 0,
+				0, -1, 0, 0,
+				0, 0, -2. / 99., -101. / 99.,
+				0, 0, 0, 1
+			);
+
+			Assert::IsTrue(_a == _excepted);
+		}
 		TEST_METHOD(Equals)
-		{}
+		{
+			Matrix4 _a(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+			Matrix4 _b(0, -1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+			Assert::IsFalse(_a == _b);
+			Assert::IsFalse(_b == _a);
+
+			_a = _b;
+			Assert::IsTrue(_a == _b);
+			Assert::IsTrue(_b == _a);
+		}
 		TEST_METHOD(ToJson)
-		{}
+		{
+			stringstream _ss;
+			Matrix4 _m;
+			_ss << _m;
+			Assert::IsTrue(_ss.str() == "{type:'Matrix4',elements:[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]}");
+		}
 	}; 
 
 }

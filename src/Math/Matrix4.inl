@@ -526,7 +526,7 @@ namespace Three::Math
         const double _scaleYSq = mElements[4] * mElements[4] + mElements[5] * mElements[5] + mElements[6] * mElements[6];
         const double _scaleZSq = mElements[8] * mElements[8] + mElements[9] * mElements[9] + mElements[10] * mElements[10];
 
-        return max(_scaleXSq, max(_scaleYSq, _scaleZSq));
+        return sqrt(max(_scaleXSq, max(_scaleYSq, _scaleZSq)));
     }
 
     inline void Matrix4::MakeTranslation(double x,
