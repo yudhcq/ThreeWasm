@@ -15,9 +15,9 @@ namespace ThreeUnitTest
         {
             Ray _a, _b(two3, one3);
             Assert::IsTrue(_a.Origin() == zero3);
-            Assert::IsTrue(_a.Direction() == Vector3(0, 0, 1));
+            Assert::IsTrue(_a.Direction() == zero3);
             Assert::IsTrue(_b.Origin() == two3);
-            Assert::IsTrue(_a.Direction() == one3);
+            Assert::IsTrue(_b.Direction() == one3);
         }
         TEST_METHOD(Set)
         {
@@ -175,7 +175,58 @@ namespace ThreeUnitTest
             Ray _d(Vector3(0, 2, 1), Vector3(0, -1, -1).Normalized());
             Assert::IsTrue(_d.Intersects(_box));
             Assert::IsTrue(*_d.Intersect(_box) == Vector3(0, 1, 0));
-            Ray _e();
+            Ray _e(Vector3(1, -2, 1), Vector3(0, 1, 0));
+            Assert::IsTrue(_e.Intersects(_box));
+            Assert::IsTrue(*_e.Intersect(_box) == Vector3(0, -1, 0));
+            Ray _f(Vector3(1, -2, 0), Vector3(0, -1, 0));
+            Assert::IsTrue(_e.Intersects(_box) == false);
+            Assert::IsTrue(_e.Intersect(_box) == nullptr);
+        }
+        TEST_METHOD(IntersectTriangle)
+        {
+            Ray _ray;
+            Vector3 _a(1, 1, 0), _b(0, 1, 1), _c(1, 0, 1);
+            _ray.SetDirection(zero3);
+            Assert::IsTrue(_ray.Intersect(_a, _b, _c, false) == nullptr);
+            _ray.SetDirection(one3);
+            Assert::IsTrue(*_ray.Intersect(_a, _b, _c, false) == Vector3(2. / 3.));
+            _b *= -1.;
+            Assert::IsTrue(_ray.Intersect(_a, _b, _c, false) == nullptr);
+            _a *= -1.;
+            Assert::IsTrue(_ray.Intersect(_a, _b, _c, false) == nullptr);
+            _b *= -1.;
+            Assert::IsTrue(_ray.Intersect(_a, _b, _c, false) == nullptr);
+            _a *= -1;
+            _b *= -1;
+            _ray.SetDirection(_ray.Direction() * -1.);
+            Assert::IsTrue(_ray.Intersect(_a, _b, _c, false) == nullptr);
+        }
+        TEST_METHOD(ApplyMatrix)
+        {
+            Ray _a(one3, Vector3::UINT_Z);
+            Matrix4 _m;
+            Assert::IsTrue(_a * _m == _a);
+            _a.SetOrigin(zero3);
+            _m.MakeRotationZ(M_PI);
+            Assert::IsTrue(_a * _m == _a);
+
+            _m.MakeRotationX(M_PI);
+            Ray _b(_a);
+            _b.SetDirection(_b.Direction() * -1);
+            Ray _a2 = _a * _m;
+            Assert::IsTrue(_b == _a2);
+
+            _a.SetOrigin(Vector3(0, 0, 1));
+            _b.SetOrigin(Vector3(0, 0, -1));
+
+            Assert::IsTrue(_a * _m == _b);
+        }
+        TEST_METHOD(ToJson)
+        {
+            stringstream _ss;
+            Ray _ray;
+            _ss << _ray;
+            Assert::IsTrue(_ss.str() == "{type:'Ray',origin:{type:'Vector3',x:0,y:0,z:0},direction:{type:'Vector3',x:0,y:0,z:-1}}");
         }
     };
 }

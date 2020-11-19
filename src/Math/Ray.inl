@@ -5,7 +5,7 @@ using namespace std;
 
 namespace Three::Math
 {
-    inline Ray::Ray() noexcept : mDirection(0., 0., -1.)
+    inline Ray::Ray() noexcept
     {
     }
 
@@ -467,6 +467,7 @@ namespace Three::Math
     {
         Ray _ray(*this);
         _ray *= matrix;
+        return _ray;
     }
 
     inline bool Ray::Equals(const Ray &ray, uint32_t ulp) const
@@ -477,12 +478,12 @@ namespace Three::Math
 
     inline bool Ray::operator==(const Ray &ray) const
     {
-        Equals(ray);
+        return Equals(ray);
     }
 
     inline ostream &operator<<(ostream &os, const Ray &ray)
     {
-        os << "{type:Ray,origin:" << ray.Origin()
+        os << "{type:'Ray',origin:" << ray.Origin()
            << ",direction:" << ray.Direction() << "}";
         return os;
     }
