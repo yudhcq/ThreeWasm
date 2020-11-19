@@ -121,5 +121,61 @@ namespace ThreeUnitTest
             _b.Set(Vector3(0, 0, -1), 4);
             Assert::IsTrue(_a0.Intersect(_b)->DistanceTo(Vector3(0, 0, -5)) < _eps);
         }
+        TEST_METHOD(IntersectPlane)
+        {
+            Ray _a(one3, Vector3::UINT_Z);
+            Plane _b;
+            _b.SetFromNormalAndCopanarPoint(Vector3::UINT_Z, Vector3(1, 1, -1));
+            Assert::IsTrue(_a.Intersect(_b) == nullptr);
+            Plane _c;
+            _c.SetFromNormalAndCopanarPoint(Vector3::UINT_Z, Vector3(1, 1, 0));
+            Assert::IsTrue(_a.Intersect(_c) == nullptr);
+            Plane _d;
+            _d.SetFromNormalAndCopanarPoint(Vector3::UINT_Z, Vector3(1, 1, 1));
+            Assert::IsTrue(*_a.Intersect(_d) == _a.Origin());
+            Plane _e;
+            _e.SetFromNormalAndCopanarPoint(Vector3::UINT_X, one3);
+            Assert::IsTrue(*_a.Intersect(_e) == _a.Origin());
+            Plane _f;
+            _f.SetFromNormalAndCopanarPoint(Vector3::UINT_X, zero3);
+            Assert::IsTrue(_a.Intersect(_f) == nullptr);
+        }
+        TEST_METHOD(IntersectsPlane)
+        {
+            Ray _a(one3, Vector3::UINT_Z);
+            Plane _b;
+            _b.SetFromNormalAndCopanarPoint(Vector3::UINT_Z, one3 - Vector3(0, 0, -1));
+            Assert::IsTrue(_a.Intersects(_b));
+            Plane _c;
+            _c.SetFromNormalAndCopanarPoint(Vector3::UINT_Z, one3);
+            Assert::IsTrue(_a.Intersects(_c));
+            Plane _d;
+            _d.SetFromNormalAndCopanarPoint(Vector3::UINT_Z, one3 - Vector3(0, 0, 1));
+            Assert::IsFalse(_a.Intersects(_d));
+            Plane _e;
+            _e.SetFromNormalAndCopanarPoint(Vector3::UINT_X, one3);
+            Assert::IsTrue(_a.Intersects(_e));
+            Plane _f;
+            _f.SetFromNormalAndCopanarPoint(Vector3::UINT_X, zero3);
+            Assert::IsFalse(!_a.Intersects(_f));
+        }
+        TEST_METHOD(IntersecBox)
+        {
+            const double TOL = 0.0001;
+            Box3 _box(Vector3(-1), Vector3(1));
+            Ray _a(Vector3(-2, 0, 0), Vector3::UINT_X);
+            Assert::IsTrue(_a.Intersects(_box));
+            Assert::IsTrue(*_a.Intersect(_box) == Vector3(-1, 0, 0));
+            Ray _b(Vector3(-2, 0, 0), Vector3(-1, 0, 0));
+            Assert::IsTrue(_b.Intersects(_box) == false);
+            Assert::IsTrue(_b.Intersect(_box) == nullptr);
+            Ray _c(Vector3(0), Vector3(1, 0, 0));
+            Assert::IsTrue(_c.Intersects(_box));
+            Assert::IsTrue(*_c.Intersect(_box) == Vector3(1, 0, 0));
+            Ray _d(Vector3(0, 2, 1), Vector3(0, -1, -1).Normalized());
+            Assert::IsTrue(_d.Intersects(_box));
+            Assert::IsTrue(*_d.Intersect(_box) == Vector3(0, 1, 0));
+            Ray _e();
+        }
     };
 }
