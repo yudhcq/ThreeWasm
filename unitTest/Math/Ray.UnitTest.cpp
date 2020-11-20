@@ -78,7 +78,7 @@ namespace ThreeUnitTest
             double _distSqr = _a.DistanceSqTo(_v0, _v1, _ptOnLine, _ptOnSegment);
             Assert::IsTrue(*_ptOnSegment == _v0);
             Assert::IsTrue(*_ptOnLine == Vector3(1, 1, 50));
-            Assert::IsTrue(MathUtil::AlmosetEquals(_distSqr, 50.));
+            Assert::IsTrue(MathUtil::AlmosetEquals(_distSqr, 20.));
 
             _v0.Set(-50, -50, -50);
             _v1.Set(-3, -5, -4);
@@ -157,9 +157,9 @@ namespace ThreeUnitTest
             Assert::IsTrue(_a.Intersects(_e));
             Plane _f;
             _f.SetFromNormalAndCopanarPoint(Vector3::UINT_X, zero3);
-            Assert::IsFalse(!_a.Intersects(_f));
+            Assert::IsFalse(_a.Intersects(_f));
         }
-        TEST_METHOD(IntersecBox)
+        TEST_METHOD(IntersectBox)
         {
             const double TOL = 0.0001;
             Box3 _box(Vector3(-1), Vector3(1));
@@ -177,10 +177,10 @@ namespace ThreeUnitTest
             Assert::IsTrue(*_d.Intersect(_box) == Vector3(0, 1, 0));
             Ray _e(Vector3(1, -2, 1), Vector3(0, 1, 0));
             Assert::IsTrue(_e.Intersects(_box));
-            Assert::IsTrue(*_e.Intersect(_box) == Vector3(0, -1, 0));
+            Assert::IsTrue(*_e.Intersect(_box) == Vector3(1, -1, 1));
             Ray _f(Vector3(1, -2, 0), Vector3(0, -1, 0));
-            Assert::IsTrue(_e.Intersects(_box) == false);
-            Assert::IsTrue(_e.Intersect(_box) == nullptr);
+            Assert::IsTrue(_f.Intersects(_box) == false);
+            Assert::IsTrue(_f.Intersect(_box) == nullptr);
         }
         TEST_METHOD(IntersectTriangle)
         {
@@ -226,7 +226,7 @@ namespace ThreeUnitTest
             stringstream _ss;
             Ray _ray;
             _ss << _ray;
-            Assert::IsTrue(_ss.str() == "{type:'Ray',origin:{type:'Vector3',x:0,y:0,z:0},direction:{type:'Vector3',x:0,y:0,z:-1}}");
+            Assert::IsTrue(_ss.str() == "{type:'Ray',origin:{type:'Vector3',x:0,y:0,z:0},direction:{type:'Vector3',x:0,y:0,z:0}}");
         }
     };
 }

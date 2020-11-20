@@ -112,7 +112,6 @@ namespace Three::Math
 
             if (_s0 >= 0.)
             {
-
                 if (_s1 >= -_extDet)
                 {
 
@@ -150,7 +149,6 @@ namespace Three::Math
             }
             else
             {
-
                 if (_s1 <= -_extDet)
                 {
 
@@ -195,7 +193,7 @@ namespace Three::Math
         }
         if (nullptr != optionalPointOnSegmentSPtr)
         {
-            *optionalPointOnSegmentSPtr = At(_s1);
+            *optionalPointOnSegmentSPtr = _segDir * _s1 + _segCenter;
         }
 
         return _sqrDist;
@@ -368,7 +366,7 @@ namespace Three::Math
 
     inline bool Ray::Intersects(const Box3 &box) const
     {
-        return nullptr == Intersect(box);
+        return nullptr != Intersect(box);
     }
 
     inline shared_ptr<const Vector3> Ray::Intersect(const Vector3 &a,
