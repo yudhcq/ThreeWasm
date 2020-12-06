@@ -45,7 +45,7 @@ namespace Three::Math
     {
         Box3 _box;
         _box.SetFromPoints(points);
-        *this = _box.GetBoundingSphere();
+        SetFromPoints(points, _box.GetCenter());
     }
 
     inline void Sphere::SetFromPoints(const vector<Vector3> &points,
@@ -98,7 +98,7 @@ namespace Three::Math
         {
             Vector3 _target = (point - mCenter).Normalized();
             _target *= mRadius;
-            _target -= mCenter;
+            _target += mCenter;
             return _target;
         }
         else
@@ -133,6 +133,14 @@ namespace Three::Math
         mCenter += offset;
     }
 
+    inline Sphere Sphere::Translated(const Vector3& offset) const noexcept
+    {
+        Sphere _s = *this;
+        _s.Translate(offset);
+        return _s;
+    }
+
+
     inline bool Sphere::Equals(const Sphere &sphere, uint32_t ulp) const noexcept
     {
         return mCenter.Equals(sphere.mCenter, ulp) && MathUtil::AlmosetEquals(mRadius, sphere.mRadius, ulp);
@@ -145,7 +153,7 @@ namespace Three::Math
 
     inline ostream &operator<<(ostream &os, const Sphere &sphere)
     {
-        os << "{type:Sphere,center:" << sphere.Center()
+        os << "{type:'Sphere',center:" << sphere.Center()
            << ",radius:" << sphere.Radius() << "}";
         return os;
     }

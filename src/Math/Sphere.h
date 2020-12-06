@@ -66,6 +66,7 @@ namespace Three::Math
         Sphere operator*(const Matrix4 &m) const noexcept;
 
         void Translate(const Vector3 &offset) noexcept;
+        Sphere Translated(const Vector3 &offset) const noexcept;
 
         bool Equals(const Sphere &sphere, uint32_t ulp = 4u) const noexcept;
         bool operator==(const Sphere &sphere) const noexcept;
