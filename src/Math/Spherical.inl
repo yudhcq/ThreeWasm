@@ -83,11 +83,23 @@ namespace Three::Math
         }
     }
 
+    inline bool Spherical::Equals(Spherical dst) const noexcept
+    {
+        return MathUtil::AlmosetEquals(mRadius, dst.mRadius) &&
+            MathUtil::AlmosetEquals(mPhi, dst.mPhi)&&
+            MathUtil::AlmosetEquals(mTheta, dst.mTheta);
+    }
+
+    inline bool Spherical::operator==(Spherical dst) const noexcept
+    {
+        return Equals(dst);
+    }
+
     inline ostream &operator<<(ostream &os, const Spherical &sphere)
     {
-        os << "{type:Spherical,radius:" << sphere.Radius()
+        os << "{type:'Spherical',radius:" << sphere.Radius()
            << ",phi:" << sphere.Phi()
-           << ",theta" << sphere.Theta() << "}";
+           << ",theta:" << sphere.Theta() << "}";
         return os;
     }
 

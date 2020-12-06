@@ -43,6 +43,10 @@ namespace Three::Math
 
         void SetFromCartesianCoords(double x, double y, double z) noexcept;
 
+        bool Equals(Spherical dst) const noexcept;
+
+        bool operator==(Spherical dst) const noexcept;
+
         friend std::ostream &operator<<(std::ostream &os, const Spherical &sphere);
 
     private:
