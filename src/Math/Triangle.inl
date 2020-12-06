@@ -140,12 +140,12 @@ namespace Three::Math
         const auto _vbp = p - mB;
         const double _d3 = _vab.Dot(_vbp);
         const double _d4 = _vac.Dot(_vbp);
-        if (_d3 >= 0. && _d4 >= 0.)
+        if (_d3 >= 0. && _d4 <= _d3)
         {
             return mB;
         }
         const double _vc = _d1 * _d4 - _d3 * _d2;
-        if (_vc <= 0. && _d1 >= 0. && _d3 >= 0.)
+        if (_vc <= 0. && _d1 >= 0. && _d3 <= 0.)
         {
             return mA + _vab * _d1 / (_d1 - _d3);
         }
@@ -230,11 +230,11 @@ namespace Three::Math
 
     inline ostream &operator<<(ostream &os, const Triangle &triangle)
     {
-        os << "{type:Triangle,"
+        os << "{type:'Triangle'"
            << ",a:" << triangle.A()
            << ",b:" << triangle.B()
            << ",c:" << triangle.C()
-           << "};";
+           << "}";
         return os;
     }
 
