@@ -1,7 +1,14 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class clearcoat_normal_fragment_begin.glsl{
-}; 
+	const std::string Clearcoat_normal_fragment_begin = R"(
+#ifdef CLEARCOAT
+
+	vec3 clearcoatNormal = geometryNormal;
+
+#endif
+)";
 }
+

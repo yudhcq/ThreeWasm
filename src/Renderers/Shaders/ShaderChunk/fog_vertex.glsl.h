@@ -1,7 +1,13 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class fog_vertex.glsl{
-}; 
+    const std::string Fog_vertex = R"(
+#ifdef USE_FOG
+
+	fogDepth = - mvPosition.z;
+
+#endif
+)";
 }

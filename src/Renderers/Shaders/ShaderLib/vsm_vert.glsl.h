@@ -1,7 +1,12 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class vsm_vert.glsl{
-}; 
+    const std::string Vsm_vert = R"(
+void main() {
+
+	gl_Position = vec4( position, 1.0 );
+
+}
+)";
 }

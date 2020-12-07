@@ -1,7 +1,9 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class lights_toon_fragment.glsl{
-}; 
+    const std::string Lights_toon_fragment = R"(
+ToonMaterial material;
+material.diffuseColor = diffuseColor.rgb;
+)";
 }

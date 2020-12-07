@@ -39,7 +39,7 @@ namespace ThreeUnitTest
             };
 
             vector<Vector3> _points(3);
-            memcpy(_points.data(), _data, 3 * sizeof(_data[0]));
+            memcpy(_points.data(), _data, 3 * sizeof(Vector3));
 
             Triangle _a;
             _a.SetFromPointAndIndices(_points, 1 , 0, 2);

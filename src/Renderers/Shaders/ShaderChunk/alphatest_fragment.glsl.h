@@ -1,7 +1,13 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class alphatest_fragment.glsl{
-}; 
+    const std::string Alphatest_fragment = R"(
+#ifdef ALPHATEST
+    if (diffuseColor.a < ALPHATEST) {
+        discard;
+    }
+#endif
+)";
 }

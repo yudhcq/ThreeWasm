@@ -1,7 +1,12 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class clipping_planes_vertex.glsl{
-}; 
+    const std::string Clipping_planes_vertex = R"(
+#if NUM_CLIPPING_PLANES > 0
+
+	vClipPosition = - mvPosition.xyz;
+
+#endif
+)";
 }

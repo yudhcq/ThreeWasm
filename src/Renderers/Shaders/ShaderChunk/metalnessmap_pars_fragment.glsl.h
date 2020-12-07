@@ -1,7 +1,12 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class metalnessmap_pars_fragment.glsl{
-}; 
+    const std::string Metalnessmap_pars_fragment = R"(
+#ifdef USE_METALNESSMAP
+
+	uniform sampler2D metalnessMap;
+
+#endif
+)";
 }

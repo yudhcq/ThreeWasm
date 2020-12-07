@@ -1,7 +1,16 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class beginnormal_vertex.glsl{
-}; 
+	const std::string Beginnormal_vertex = R"(
+vec3 objectNormal = vec3( normal );
+
+#ifdef USE_TANGENT
+
+	vec3 objectTangent = vec3( tangent.xyz );
+
+#endif
+)";
 }
+

@@ -1,7 +1,12 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader 
 {
-class alphamap_fragment.glsl{
-}; 
+    const std::string Alphamap_fragment = R"(
+#ifdef USE_ALPHAMAP
+    diffuseColor.a *= texture2D(alphaMap, vUv).g;
+#endif
+)";
 }
+

@@ -1,7 +1,12 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class uv_vertex.glsl{
-}; 
+    const std::string Uv_vertex = R"(
+#ifdef USE_UV
+
+	vUv = ( uvTransform * vec3( uv, 1 ) ).xy;
+
+#endif
+)";
 }

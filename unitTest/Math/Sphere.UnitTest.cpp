@@ -53,7 +53,7 @@ namespace ThreeUnitTest
                 Vector3(0, -1, -0), Vector3(-0, -1, -0)
             };
             vector<Vector3> _points(20);
-            memcpy(_points.data(), _data, 20 * sizeof(_data[0]));
+            memcpy(_points.data(), _data, 20 * sizeof(Vector3));
             _a.SetFromPoints(_points);
 
             Assert::IsTrue(_a.Center() == Vector3(0.9330126941204071, 0, 0));

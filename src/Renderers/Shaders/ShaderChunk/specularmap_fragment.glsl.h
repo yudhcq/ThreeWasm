@@ -1,7 +1,19 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class specularmap_fragment.glsl{
-}; 
+    const std::string Specularmap_fragment = R"(
+float specularStrength;
+
+#ifdef USE_SPECULARMAP
+
+	vec4 texelSpecular = texture2D( specularMap, vUv );
+	specularStrength = texelSpecular.r;
+
+#else
+
+	specularStrength = 1.0;
+
+#endif
+)";
 }

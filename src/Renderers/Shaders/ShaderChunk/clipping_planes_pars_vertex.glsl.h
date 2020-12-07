@@ -1,7 +1,13 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class clipping_planes_pars_vertex.glsl{
-}; 
+    const std::string Clipping_planes_pars_vertex = R"(
+#if NUM_CLIPPING_PLANES > 0
+
+	varying vec3 vClipPosition;
+
+#endif
+)";
 }

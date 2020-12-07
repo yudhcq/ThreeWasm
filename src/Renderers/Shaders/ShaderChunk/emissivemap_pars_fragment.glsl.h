@@ -1,7 +1,12 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class emissivemap_pars_fragment.glsl{
-}; 
+    const std::string Emissivemap_pars_fragment = R"(
+#ifdef USE_EMISSIVEMAP
+
+	uniform sampler2D emissiveMap;
+
+#endif
+)";
 }

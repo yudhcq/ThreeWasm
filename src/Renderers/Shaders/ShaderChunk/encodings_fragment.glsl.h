@@ -1,7 +1,8 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class encodings_fragment.glsl{
-}; 
+    const std::string Encodings_fragment = R"(
+gl_FragColor = linearToOutputTexel( gl_FragColor );
+)";
 }

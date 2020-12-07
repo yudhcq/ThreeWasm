@@ -1,7 +1,23 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class fog_fragment.glsl{
-}; 
+    const std::string Fog_fragment = R"(
+#ifdef USE_FOG
+
+	#ifdef FOG_EXP2
+
+		float fogFactor = 1.0 - exp( - fogDensity * fogDensity * fogDepth * fogDepth );
+
+	#else
+
+		float fogFactor = smoothstep( fogNear, fogFar, fogDepth );
+
+	#endif
+
+	gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
+
+#endif
+)";
 }

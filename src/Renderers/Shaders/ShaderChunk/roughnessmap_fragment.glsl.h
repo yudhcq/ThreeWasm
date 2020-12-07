@@ -1,7 +1,17 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class roughnessmap_fragment.glsl{
-}; 
+    const std::string Roughnessmap_fragment = R"(
+float roughnessFactor = roughness;
+
+#ifdef USE_ROUGHNESSMAP
+
+	vec4 texelRoughness = texture2D( roughnessMap, vUv );
+
+	// reads channel G, compatible with a combined OcclusionRoughnessMetallic (RGB) texture
+	roughnessFactor *= texelRoughness.g;
+
+#endif
+)";
 }

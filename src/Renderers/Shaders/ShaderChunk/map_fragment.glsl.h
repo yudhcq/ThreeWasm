@@ -1,7 +1,15 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class map_fragment.glsl{
-}; 
+    const std::string Map_fragment = R"(
+#ifdef USE_MAP
+
+	vec4 texelColor = texture2D( map, vUv );
+
+	texelColor = mapTexelToLinear( texelColor );
+	diffuseColor *= texelColor;
+
+#endif
+)";
 }

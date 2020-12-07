@@ -1,7 +1,13 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class color_pars_fragment.glsl{
-}; 
+    const std::string Color_pars_fragment = R"(
+#ifdef USE_COLOR
+
+	varying vec3 vColor;
+
+#endif
+)";
 }

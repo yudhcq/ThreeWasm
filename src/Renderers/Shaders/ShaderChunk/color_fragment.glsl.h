@@ -1,7 +1,13 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class color_fragment.glsl{
-}; 
+    const std::string Color_fragment = R"(
+#ifdef USE_COLOR
+
+	diffuseColor.rgb *= vColor;
+
+#endif
+)";
 }

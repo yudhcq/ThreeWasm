@@ -1,7 +1,25 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class fog_pars_fragment.glsl{
-}; 
+    const std::string Fog_pars_fragment = R"(
+#ifdef USE_FOG
+
+	uniform vec3 fogColor;
+	varying float fogDepth;
+
+	#ifdef FOG_EXP2
+
+		uniform float fogDensity;
+
+	#else
+
+		uniform float fogNear;
+		uniform float fogFar;
+
+	#endif
+
+#endif
+)";
 }

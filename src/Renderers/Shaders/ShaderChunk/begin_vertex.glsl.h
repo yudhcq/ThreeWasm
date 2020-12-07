@@ -1,7 +1,10 @@
 #pragma once
+#include <string>
 
-namespace Three::Renderers
+namespace Three::Shader
 {
-class begin_vertex.glsl{
-}; 
+    const std::string Begin_vertex = R"(
+vec3 transformed = vec3( position );
+)";
 }
+

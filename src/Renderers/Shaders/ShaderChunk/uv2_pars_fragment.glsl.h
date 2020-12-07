@@ -1,7 +1,12 @@
 #pragma once
-
-namespace Three::Renderers
+#include <string>
+namespace Three::Shader
 {
-class uv2_pars_fragment.glsl{
-}; 
+    const std::string Uv2_pars_fragment = R"(
+#if defined( USE_LIGHTMAP ) || defined( USE_AOMAP )
+
+	varying vec2 vUv2;
+
+#endif
+)";
 }
