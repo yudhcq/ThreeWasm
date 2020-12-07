@@ -211,9 +211,8 @@ namespace Three::Shader
     const UniformsLib& UniformsLib::GetSpriteUniformsLib()
     {}
 
-    UniformsLib UniformsLib::MergeUniformsLibs(size_t count, ...)
+    void UniformsLib::MergeUniformsLibs(size_t count, ...)
     {
-        UniformsLib _ul;
         if (count > 0) 
         {
             std::va_list _arg_list;
@@ -224,10 +223,9 @@ namespace Three::Shader
                 const UniformsLib& _uniformsLib = va_arg(_arg_list, UniformsLib);
                 for (const auto& _pair : _uniformsLib.mUniforms)
                 {
-                    _ul.AddUniform(std::get<0>(_pair), std::get<1>(_pair));
+                    AddUniform(std::get<0>(_pair), std::get<1>(_pair));
                 }
             }
         }
-        return _ul;
     }
 }

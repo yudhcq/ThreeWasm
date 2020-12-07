@@ -5,6 +5,7 @@ namespace Three::Shader
 {
     class ShaderChunk 
     {
+    public:
         static std::string alphamap_fragment;
         static std::string alphamap_pars_fragment;
         static std::string alphatest_fragment;

@@ -24,6 +24,8 @@ namespace Three::Shader
 
         size_t GetUniformsCount() const noexcept;
 
+        void MergeUniformsLibs(size_t count, ...);
+
     public:
         static const UniformsLib& GetCommonUniformsLib();
         static const UniformsLib& GetSpecularmapUniformsLib();
@@ -41,8 +43,6 @@ namespace Three::Shader
         static const UniformsLib& GetLightsUniformsLib();
         static const UniformsLib& GetPointsUniformsLib();
         static const UniformsLib& GetSpriteUniformsLib();
-
-        static UniformsLib MergeUniformsLibs(size_t count, ...);
     
     private:
         static UniformsLib common;

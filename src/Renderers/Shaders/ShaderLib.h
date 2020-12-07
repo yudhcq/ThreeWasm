@@ -17,25 +17,25 @@ namespace Three::Shader
         const std::string& GetFragmentShader() const noexcept;
         void SetFragmentShader(const std::string& shaderSrc) noexcept;
 
-        bool isValid() const noexcept;
+        bool IsValid() const noexcept;
 
     public:
-        static ShaderLib GetBasic;
-        static ShaderLib GetLambert;
-        static ShaderLib GetPhong;
-        static ShaderLib GetStandard;
-        static ShaderLib GetToon;
-        static ShaderLib GetMatcap;
-        static ShaderLib GetPoints;
-        static ShaderLib GetDepth;
-        static ShaderLib GetNormal;
-        static ShaderLib GetSprite;
-        static ShaderLib GetBackground;
-        static ShaderLib GetCube;
-        static ShaderLib GetEquirect;
-        static ShaderLib GetDistanceRGBA;
-        static ShaderLib GetShadow;
-        static ShaderLib GetPhysical;
+        static const ShaderLib& GetBasicShaderLib();
+        static const ShaderLib& GetLambertShaderLib();
+        static const ShaderLib& GetPhongShaderLib();
+        static const ShaderLib& GetStandardShaderLib();
+        static const ShaderLib& GetToonShaderLib();
+        static const ShaderLib& GetMatcapShaderLib();
+        static const ShaderLib& GetPointsShaderLib();
+        static const ShaderLib& GetDepthShaderLib();
+        static const ShaderLib& GetNormalShaderLib();
+        static const ShaderLib& GetSpriteShaderLib();
+        static const ShaderLib& GetBackgroundShaderLib();
+        static const ShaderLib& GetCubeShaderLib();
+        static const ShaderLib& GetEquirectShaderLib();
+        static const ShaderLib& GetDistanceRGBAShaderLib();
+        static const ShaderLib& GetShadowShaderLib();
+        static const ShaderLib& GetPhysicalShaderLib();
     private:
 
         static ShaderLib basic;

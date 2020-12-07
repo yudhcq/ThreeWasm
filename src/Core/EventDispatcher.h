@@ -2,7 +2,7 @@
 
 namespace Three::Core
 {
-class EventDispatcher
-{
-};
+	class EventDispatcher
+	{
+	};
 } // namespace Three::Core
