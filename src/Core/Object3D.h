@@ -88,32 +88,32 @@ namespace Three
         static bool DefaultMatrixAutoUpdate;
     private:
         static size_t Object3DId;
-    protected:
-        size_t mId;
-        Guid mUUID;
-        std::string mName;
-        Object3D* mParent = nullptr;
-        std::set<Object3DSharedPtr> mChildren;
-        Vector3 mUp;
+    public:
+        size_t id;
+        Guid UUID;
+        std::string name;
+        Object3D* parent = nullptr;
+        std::set<Object3DSharedPtr> children;
+        Vector3 up;
 
-        Vector3 mPosition;
-        Vector3 mScale;
-        Euler mEuler;
-        Quaternion mQuaternion;
-        Matrix4 mModelViewMatrix;
-        Matrix4 mNormalMatrix;
-        Matrix4 mMatrix;
-        Matrix4 mMatrixWorld;
-        bool mMatrixAutoUpdate;
-        bool mMatrixWorldNeedsUpdate;
-        Layers mLayers;
-        bool mVisible;
-        bool mCastShadow;
-        bool mReceiveShadow;
-        bool mFrustumCulled;
-        size_t mRenderOrder;
-        std::shared_ptr<void*> mUserData;
-        std::shared_ptr<Material> mCustomDepthMaterial;
-        std::shared_ptr<Material> mCustomDistanceMaterial;
+        Vector3 position;
+        Vector3 scale;
+        Euler euler;
+        Quaternion quaternion;
+        Matrix4 modelViewMatrix;
+        Matrix4 normalMatrix;
+        Matrix4 matrix;
+        Matrix4 matrixWorld;
+        bool matrixAutoUpdate;
+        bool matrixWorldNeedsUpdate;
+        Layers layers;
+        bool visible;
+        bool castShadow;
+        bool receiveShadow;
+        bool frustumCulled;
+        size_t renderOrder;
+        std::shared_ptr<void*> userData;
+        std::shared_ptr<Material> customDepthMaterial;
+        std::shared_ptr<Material> customDistanceMaterial;
     };
 }

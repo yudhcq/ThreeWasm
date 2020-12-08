@@ -7,11 +7,12 @@ namespace Three
 	class Camera: public Object3D
 	{
 	public:
+		Camera();
 		virtual Vector3 GetWorldDirection() const;
 		virtual void UpdateMatrixWorld(bool force = false);
-	private:
-		Matrix4 mMatrixWorldInverse;
-		Matrix4 mProjectionMatrix;
-		Matrix4 mProjectionMatrixInverse;
+	public:
+		Matrix4 matrixWorldInverse;
+		Matrix4 projectionMatrix;
+		Matrix4 projectionMatrixInverse;
 	};
 } // namespace Camera

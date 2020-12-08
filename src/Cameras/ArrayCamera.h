@@ -9,8 +9,7 @@ namespace Three
     {
     public:
         ArrayCamera();
-        std::vector<PerspectiveCamera>& Cameras();
-    private:
-        std::vector<PerspectiveCamera> mCameras;
+    public:
+        std::vector<PerspectiveCamera> cameras;
     };
 } // namespace Three

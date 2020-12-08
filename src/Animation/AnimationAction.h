@@ -2,6 +2,7 @@
 
 namespace Three
 {
-class AnimationAction{
-}; 
+    class AnimationAction
+    {
+    };
 }

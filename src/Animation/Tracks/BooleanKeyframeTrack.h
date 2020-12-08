@@ -2,6 +2,7 @@
 
 namespace Three
 {
-class BooleanKeyframeTrack{
-}; 
+    class BooleanKeyframeTrack
+    {
+    };
 }
