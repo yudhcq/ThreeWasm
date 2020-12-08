@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Loaders
+namespace Three
 {
 class LoadingManager{
 }; 

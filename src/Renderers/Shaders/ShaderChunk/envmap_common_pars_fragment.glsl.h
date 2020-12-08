@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Envmap_common_pars_fragment = R"(
 #ifdef USE_ENVMAP

@@ -12,7 +12,7 @@
 
 #include "Vector3.h"
 
-namespace Three::Math
+namespace Three
 {
     /**
      * @brief SphericalHarmonics3
@@ -62,6 +62,6 @@ namespace Three::Math
          */
         Vector3 mCoefficients[9];
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "SphericalHarmonics3.inl"

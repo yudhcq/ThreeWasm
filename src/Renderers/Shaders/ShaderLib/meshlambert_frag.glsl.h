@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Meshlambert_frag = R"(
 uniform vec3 diffuse;

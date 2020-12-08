@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Line3::Line3() noexcept
     {
@@ -117,4 +117,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Helpers
+namespace Three
 {
 class Box3Helper{
 }; 

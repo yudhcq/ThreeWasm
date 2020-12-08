@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace Three::Shader
+namespace Three
 {
 	const std::string Aomap_fragment = R"(
 #ifdef USE_AOMAP

@@ -1,7 +1,7 @@
 #pragma once
 #include "UniformsLib.h"
 
-namespace Three::Shader
+namespace Three
 {
     class ShaderLib
     {

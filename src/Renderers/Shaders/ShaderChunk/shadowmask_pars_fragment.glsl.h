@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Shadowmask_pars_fragment = R"(
 float getShadowMask() {

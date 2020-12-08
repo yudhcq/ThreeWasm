@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Vector4.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 四位向量类头文件
@@ -10,12 +10,12 @@
 #include <ostream>
 #include <vector>
 
-namespace Three::Core
+namespace Three
 {
     class BufferAttribute;
-} // namespace Three::Core
+} // namespace Three
 
-namespace Three::Math
+namespace Three
 {
     class Matrix4;
     class Quaternion;
@@ -178,5 +178,5 @@ namespace Three::Math
          */
         double mW;
     };
-} // namespace Three::Math
+} // namespace Three
 #include "Vector4.inl"

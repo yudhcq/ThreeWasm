@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <string>
 
-namespace Three::Shader
+namespace Three
 {
 	const std::string Bsdfs = R"(
 // Analytical approximation of the DFG LUT, one half of the
@@ -89,7 +89,7 @@ vec3 F_Schlick_RoughnessDependent( const in vec3 F0, const in float dotNV, const
 // alpha is "roughness squared" in Disney’s reparameterization
 float G_GGX_Smith( const in float alpha, const in float dotNL, const in float dotNV ) {
 
-	// geometry term (normalized) = G(l)⋅G(v) / 4(n⋅l)(n⋅v)
+	// geometry term (normalized) = G(l)*G(v) / 4(n*l)(n*v)
 	// also see #12151
 
 	float a2 = pow2( alpha );

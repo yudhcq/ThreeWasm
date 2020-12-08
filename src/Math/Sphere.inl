@@ -1,9 +1,9 @@
-#include "Sphere.h"
+﻿#include "Sphere.h"
 #include "Box3.h"
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Sphere::Sphere() noexcept : mRadius(0.)
     {
@@ -158,4 +158,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

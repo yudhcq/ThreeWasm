@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Triangle::Triangle() noexcept
     {
@@ -238,4 +238,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Sprite_vert = R"(
 uniform float rotation;

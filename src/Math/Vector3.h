@@ -10,18 +10,9 @@
 #include <ostream>
 #include <vector>
 
-namespace Three::Core
-{
-	class BufferAttribute;
-} // namespace Three::Core
-
-namespace Three::Camera
+namespace Three
 {
 	class Camera;
-} // namespace Three::Camera
-
-namespace Three::Math
-{
 	class Euler;
 	class Matrix3;
 	class Matrix4;
@@ -99,9 +90,9 @@ namespace Three::Math
 		Vector3 Applied(const Matrix4 &m) const noexcept;
 		Vector3 Applied(const Quaternion &q) const noexcept;
 
-		void Unproject(const Camera::Camera &camera) noexcept;
+		void Unproject(const Camera &camera) noexcept;
 
-		Vector3 Unprojected(const Camera::Camera &camera) const noexcept;
+		Vector3 Unprojected(const Camera &camera) const noexcept;
 
 		void TransformDirection(const Matrix4 &m) noexcept;
 
@@ -199,11 +190,11 @@ namespace Three::Math
 
 		void Project(const Vector3 &v) noexcept;
 		void Project(const Plane &plane) noexcept;
-		void Project(const Camera::Camera &camera) noexcept;
+		void Project(const Camera &camera) noexcept;
 
 		Vector3 Projected(const Vector3 &v) const noexcept;
 		Vector3 Projected(const Plane &plane) const noexcept;
-		Vector3 Projected(const Camera::Camera &camera) const noexcept;
+		Vector3 Projected(const Camera &camera) const noexcept;
 
 		void Reflect(const Plane &plane) noexcept;
 
@@ -257,6 +248,6 @@ namespace Three::Math
 		const static Vector3 UINT_Y;
 		const static Vector3 UINT_Z;
 	};
-} // namespace Three::Math
+} // namespace Three
 
 #include "Vector3.inl"

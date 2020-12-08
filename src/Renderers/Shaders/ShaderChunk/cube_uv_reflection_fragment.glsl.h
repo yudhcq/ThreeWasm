@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Cube_uv_reflection_fragment = R"(
 #ifdef ENVMAP_TYPE_CUBE_UV

@@ -12,7 +12,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
 
     inline const double MathUtil::DEG2RAD = M_PI / 180.;
@@ -209,5 +209,5 @@ namespace Three::Math
     }
 
 
-} // namespace Three::Math
+} // namespace Three
 #undef _USE_MATH_DEFINES

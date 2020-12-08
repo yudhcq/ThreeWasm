@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Packing = R"(
 vec3 packNormalToRGB( const in vec3 normal ) {

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Quaternion.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 四元数类头文件
@@ -10,12 +10,12 @@
 #include <vector>
 #include <ostream>
 
-namespace Three::Core
+namespace Three
 {
     class BufferAttribute;
-} // namespace Three::Core
+} // namespace Three
 
-namespace Three::Math
+namespace Three
 {
     class Euler;
     class Vector3;
@@ -84,7 +84,7 @@ namespace Three::Math
 
         Quaternion operator*(const Quaternion &q) const noexcept;
 
-        void FromBufferAttribute(const Core::BufferAttribute &attrbute, const size_t offset = 0);
+        void FromBufferAttribute(const BufferAttribute &attrbute, const size_t offset = 0);
 
         void Slerp(const Quaternion &qb, double t) noexcept;
 
@@ -119,6 +119,6 @@ namespace Three::Math
          */
         double mW;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Quaternion.inl"

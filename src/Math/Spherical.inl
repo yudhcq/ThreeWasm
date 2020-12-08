@@ -2,7 +2,7 @@
 #include "Vector3.h"
 #include "MathUtil.h"
 
-namespace Three::Math
+namespace Three
 {
     inline Spherical::Spherical() noexcept : mRadius(1.),
                                              mPhi(0.),
@@ -103,4 +103,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

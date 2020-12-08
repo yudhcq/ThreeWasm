@@ -1,8 +1,8 @@
 #pragma once
 
-namespace Three::Core
+namespace Three
 {
 class InterleavedBufferAttribute
 {
 };
-} // namespace Three::Core
+} // namespace Three

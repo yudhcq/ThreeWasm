@@ -13,10 +13,10 @@
 #include "Vector2.h"
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学类的命名空间
  */
-namespace Three::Math
+namespace Three
 {
 	/**
 	 * @brief 二维盒
@@ -244,6 +244,6 @@ namespace Three::Math
 		 */
 		Vector2 mMax;
 	};
-} // namespace Three::Math
+} // namespace Three
 
 #include "Box2.inl"

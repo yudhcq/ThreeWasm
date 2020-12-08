@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Normal_frag = R"(
 #define NORMAL
@@ -44,9 +44,4 @@ void main() {
 
 }
 )";
-}
-namespace Three::Renderers
-{
-class normal_frag.glsl{
-}; 
 }

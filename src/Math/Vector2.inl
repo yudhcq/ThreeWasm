@@ -11,7 +11,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Vector2::Vector2() noexcept : mX(0.),
                                          mY(0.)
@@ -516,5 +516,5 @@ namespace Three::Math
         return v + s;
     }
 
-} // namespace Three::Math
+} // namespace Three
 #undef _USE_MATH_DEFINES

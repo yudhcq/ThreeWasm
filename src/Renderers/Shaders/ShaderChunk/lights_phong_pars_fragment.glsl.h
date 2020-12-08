@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Lights_phong_pars_fragment = R"(
 varying vec3 vViewPosition;

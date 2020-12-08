@@ -1,7 +1,7 @@
 #pragma once
-namespace Three::Math
+namespace Three
 {
 class Geometry
 {
 };
-} // namespace Three::Math
+} // namespace Three

@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Cube_vert = R"(
 varying vec3 vWorldDirection;

@@ -1,4 +1,4 @@
-#include <float.h>
+﻿#include <float.h>
 #include <exception>
 
 #include "Box3.h"
@@ -11,7 +11,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Box3::Box3() noexcept : mMin(DBL_MAX, DBL_MAX, DBL_MAX),
                                    mMax(-DBL_MAX, -DBL_MAX, -DBL_MAX)
@@ -331,4 +331,4 @@ namespace Three::Math
 
         return os;
     }
-} // namespace Three::Math
+} // namespace Three

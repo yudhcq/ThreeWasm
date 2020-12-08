@@ -8,7 +8,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Frustum::Frustum() noexcept
     {
@@ -143,4 +143,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

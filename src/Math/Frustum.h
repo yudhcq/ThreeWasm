@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Frustum.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 视锥类头文件
@@ -14,10 +14,10 @@
 #include "Plane.h"
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学类命名空间
  */
-namespace Three::Math
+namespace Three
 {
     class Object3D;
     class Matrix4;
@@ -58,6 +58,6 @@ namespace Three::Math
     private:
         Plane mPlanes[6];
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Frustum.inl"

@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 
-namespace Three::Core
+namespace Three
 {
 class BufferGeometry
 {
@@ -10,4 +10,4 @@ public:
 private:
     static uint64_t BufferGeometryId;
 };
-} // namespace Three::Core
+} // namespace Three

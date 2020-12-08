@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     map<string, int> Color::ColorKeyWorlds = {
         {"aliceblue", 0xF0F8FF},
@@ -597,4 +597,4 @@ namespace Three::Math
            << "}";
         return os;
     }
-} // namespace Three::Math
+} // namespace Three

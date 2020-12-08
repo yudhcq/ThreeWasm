@@ -1,8 +1,8 @@
 #pragma once
 
-namespace Three::Math
+namespace Three
 {
 class Face3
 {
 };
-} // namespace Three::Math
+} // namespace Three

@@ -1,7 +1,8 @@
 #pragma once
 
-namespace Three::Textures
+namespace Three
 {
-class Texture{
-}; 
+    class Texture
+    {
+    };
 }

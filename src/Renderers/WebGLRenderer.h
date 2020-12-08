@@ -1,7 +1,8 @@
 #pragma once
 
-namespace Three::Renderers
+namespace Three
 {
-class WebGLRenderer{
-}; 
+    class WebGLRenderer 
+    {
+    };
 }

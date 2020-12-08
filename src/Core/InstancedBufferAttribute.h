@@ -1,8 +1,8 @@
 #pragma once
 
-namespace Three::Core
+namespace Three
 {
 class InstancedBufferAttribute
 {
 };
-} // namespace Three::Core
+} // namespace Three

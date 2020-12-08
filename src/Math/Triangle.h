@@ -12,7 +12,7 @@
 
 #include "Vector3.h"
 
-namespace Three::Math
+namespace Three
 {
     class Plane;
     class Vector2;
@@ -112,6 +112,6 @@ namespace Three::Math
          */
         Vector3 mC;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Triangle.inl"

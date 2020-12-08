@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace Three::Shader
+namespace Three
 {
 	const std::string Beginnormal_vertex = R"(
 vec3 objectNormal = vec3( normal );

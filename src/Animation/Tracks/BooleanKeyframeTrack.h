@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Animation
+namespace Three
 {
 class BooleanKeyframeTrack{
 }; 

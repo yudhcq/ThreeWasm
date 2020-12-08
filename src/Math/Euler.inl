@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Euler::Euler() noexcept : mX(0.),
                                      mY(0.),
@@ -211,31 +211,31 @@ namespace Three::Math
     {
         switch (mOrder)
         {
-        case Three::Math::EulerOrder::NONE:
+        case Three::EulerOrder::NONE:
             return "XYZ";
-        case Three::Math::EulerOrder::XYZ:
+        case Three::EulerOrder::XYZ:
             return "XYZ";
-        case Three::Math::EulerOrder::YZX:
+        case Three::EulerOrder::YZX:
             return "YZX";
-        case Three::Math::EulerOrder::ZXY:
+        case Three::EulerOrder::ZXY:
             return "ZXY";
-        case Three::Math::EulerOrder::XZY:
+        case Three::EulerOrder::XZY:
             return "XZY";
-        case Three::Math::EulerOrder::YXZ:
+        case Three::EulerOrder::YXZ:
             return "YXZ";
-        case Three::Math::EulerOrder::ZYX:
+        case Three::EulerOrder::ZYX:
             return "ZYX";
-        case Three::Math::EulerOrder::XYX:
+        case Three::EulerOrder::XYX:
             return "XYX";
-        case Three::Math::EulerOrder::YZY:
+        case Three::EulerOrder::YZY:
             return "YZY";
-        case Three::Math::EulerOrder::ZXZ:
+        case Three::EulerOrder::ZXZ:
             return "ZXZ";
-        case Three::Math::EulerOrder::XZX:
+        case Three::EulerOrder::XZX:
             return "XZX";
-        case Three::Math::EulerOrder::YXY:
+        case Three::EulerOrder::YXY:
             return "YXY";
-        case Three::Math::EulerOrder::ZYZ:
+        case Three::EulerOrder::ZYZ:
             return "ZYZ";
         default:
             return "XYZ";
@@ -252,4 +252,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file MathUtil.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 工具数学方法头文件
@@ -10,10 +10,10 @@
 #include <string>
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学类命名空间
  */
-namespace Three::Math
+namespace Three
 {
     enum class EulerOrder : uint8_t;
     class Quaternion;
@@ -81,6 +81,6 @@ namespace Three::Math
         static const double RAD2DEG;
         static const double EPSILION;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "MathUtil.inl"

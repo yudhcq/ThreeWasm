@@ -6,7 +6,7 @@
 
 using namespace std;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace Three::Math;
+using namespace Three;
 
 namespace ThreeUnitTest
 {

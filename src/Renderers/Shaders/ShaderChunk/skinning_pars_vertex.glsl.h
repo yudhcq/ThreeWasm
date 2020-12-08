@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Skinning_pars_vertex = R"(
 #ifdef USE_SKINNING

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Spherical.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 球面坐标系类头文件
@@ -10,7 +10,7 @@
 #pragma once
 #include <ostream>
 
-namespace Three::Math
+namespace Three
 {
     class Vector3;
     /**
@@ -67,6 +67,6 @@ namespace Three::Math
         double mTheta;
     };
 
-} // namespace Three::Math
+} // namespace Three
 
 #include "Spherical.inl"

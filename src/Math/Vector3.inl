@@ -1,4 +1,4 @@
-#include <exception>
+﻿#include <exception>
 #include <algorithm>
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -17,27 +17,27 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline const Vector3 Vector3::UINT_X(1., 0., 0.);
     inline const Vector3 Vector3::UINT_Y(0., 1., 0.);
     inline const Vector3 Vector3::UINT_Z(0., 0., 1.);
 
     inline Vector3::Vector3() noexcept : mX(0.),
-                                         mY(0.),
-                                         mZ(0.)
+        mY(0.),
+        mZ(0.)
     {
     }
 
     inline Vector3::Vector3(double scalar) noexcept : mX(scalar),
-                                                      mY(scalar),
-                                                      mZ(scalar)
+        mY(scalar),
+        mZ(scalar)
     {
     }
 
     inline Vector3::Vector3(double x, double y, double z) noexcept : mX(x),
-                                                                     mY(y),
-                                                                     mZ(z)
+        mY(y),
+        mZ(z)
     {
     }
 
@@ -91,11 +91,11 @@ namespace Three::Math
         }
         else
         {
-            return reinterpret_cast<const double *>(this)[index];
+            return reinterpret_cast<const double*>(this)[index];
         }
     }
 
-    inline double &Vector3::operator[](const size_t index)
+    inline double& Vector3::operator[](const size_t index)
     {
         if (index > 2)
         {
@@ -103,11 +103,11 @@ namespace Three::Math
         }
         else
         {
-            return reinterpret_cast<double *>(this)[index];
+            return reinterpret_cast<double*>(this)[index];
         }
     }
 
-    inline void Vector3::operator+=(const Vector3 &v) noexcept
+    inline void Vector3::operator+=(const Vector3& v) noexcept
     {
         mX += v.mX;
         mY += v.mY;
@@ -121,14 +121,14 @@ namespace Three::Math
         mZ += s;
     }
 
-    inline void Vector3::AddScaledVector(const Vector3 &v, double s) noexcept
+    inline void Vector3::AddScaledVector(const Vector3& v, double s) noexcept
     {
         mX += v.mX * s;
         mY += v.mY * s;
         mZ += v.mZ * s;
     }
 
-    inline Vector3 Vector3::operator+(const Vector3 &v) const noexcept
+    inline Vector3 Vector3::operator+(const Vector3& v) const noexcept
     {
         return Vector3(mX + v.mX, mY + v.mY, mZ + v.mZ);
     }
@@ -138,12 +138,12 @@ namespace Three::Math
         return Vector3(mX + s, mY + s, mZ + s);
     }
 
-    inline Vector3 Vector3::AddedScaledVector(const Vector3 &v, double s)
+    inline Vector3 Vector3::AddedScaledVector(const Vector3& v, double s)
     {
         return Vector3(mX + v.mX * s, mY + v.mY * s, mZ + v.mZ * s);
     }
 
-    inline void Vector3::operator-=(const Vector3 &v) noexcept
+    inline void Vector3::operator-=(const Vector3& v) noexcept
     {
         mX -= v.mX;
         mY -= v.mY;
@@ -157,7 +157,7 @@ namespace Three::Math
         mZ -= s;
     }
 
-    inline Vector3 Vector3::operator-(const Vector3 &v) const noexcept
+    inline Vector3 Vector3::operator-(const Vector3& v) const noexcept
     {
         return Vector3(mX - v.mX, mY - v.mY, mZ - v.mZ);
     }
@@ -167,7 +167,7 @@ namespace Three::Math
         return Vector3(mX - s, mY - s, mZ - s);
     }
 
-    inline void Vector3::operator*=(const Vector3 &v) noexcept
+    inline void Vector3::operator*=(const Vector3& v) noexcept
     {
         mX *= v.mX;
         mY *= v.mY;
@@ -181,7 +181,7 @@ namespace Three::Math
         mZ *= s;
     }
 
-    inline Vector3 Vector3::operator*(const Vector3 &v) const noexcept
+    inline Vector3 Vector3::operator*(const Vector3& v) const noexcept
     {
         return Vector3(mX * v.mX, mY * v.mY, mZ * v.mZ);
     }
@@ -191,17 +191,17 @@ namespace Three::Math
         return Vector3(mX * s, mY * s, mZ * s);
     }
 
-    inline void Vector3::Apply(const Euler &e) noexcept
+    inline void Vector3::Apply(const Euler& e) noexcept
     {
         Apply(Quaternion(e));
     }
 
-    inline void Vector3::Apply(const Vector3 &axis, double angle) noexcept
+    inline void Vector3::Apply(const Vector3& axis, double angle) noexcept
     {
         Apply(Quaternion(axis, angle));
     }
 
-    inline void Vector3::Apply(const Matrix3 &m) noexcept
+    inline void Vector3::Apply(const Matrix3& m) noexcept
     {
         const double _x = mX, _y = mY, _z = mZ;
         mX = m[0] * _x + m[3] * _y + m[6] * _z;
@@ -209,13 +209,13 @@ namespace Three::Math
         mZ = m[2] * _x + m[5] * _y + m[8] * _z;
     }
 
-    inline void Vector3::ApplyNormalMatrix(const Matrix3 &m) noexcept
+    inline void Vector3::ApplyNormalMatrix(const Matrix3& m) noexcept
     {
         Apply(m);
         Normalize();
     }
 
-    inline void Vector3::Apply(const Matrix4 &m)
+    inline void Vector3::Apply(const Matrix4& m)
     {
         const double _x = mX, _y = mY, _z = mZ;
         const double _w = m[3] * _x + m[7] * _y + m[11] * _z + m[15];
@@ -228,7 +228,7 @@ namespace Three::Math
         mZ = (m[2] * _x + m[6] * _y + m[10] * _z + m[14]) / _w;
     }
 
-    inline void Vector3::Apply(const Quaternion &q) noexcept
+    inline void Vector3::Apply(const Quaternion& q) noexcept
     {
         const double _x = mX, _y = mY, _z = mZ;
         const double _qx = q.X(), _qy = q.Y(), _qz = q.Z(), _qw = q.W();
@@ -243,59 +243,59 @@ namespace Three::Math
         mZ = _iz * _qw + _iw * -_qz + _ix * -_qy - _iy * -_qx;
     }
 
-    inline Vector3 Vector3::Applied(const Euler &e) const noexcept
+    inline Vector3 Vector3::Applied(const Euler& e) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Apply(e);
         return _vec;
     }
 
-    inline Vector3 Vector3::Applied(const Vector3 &axis, double angle) const noexcept
+    inline Vector3 Vector3::Applied(const Vector3& axis, double angle) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Apply(axis, angle);
         return _vec;
     }
 
-    inline Vector3 Vector3::Applied(const Matrix3 &m) const noexcept
+    inline Vector3 Vector3::Applied(const Matrix3& m) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Apply(m);
         return _vec;
     }
 
-    inline Vector3 Vector3::AppliedNormalMatrix(const Matrix3 &m) const noexcept
+    inline Vector3 Vector3::AppliedNormalMatrix(const Matrix3& m) const noexcept
     {
         Vector3 _vec(*this);
         _vec.AppliedNormalMatrix(m);
         return _vec;
     }
 
-    inline Vector3 Vector3::Applied(const Matrix4 &m) const noexcept
+    inline Vector3 Vector3::Applied(const Matrix4& m) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Apply(m);
         return _vec;
     }
 
-    inline Vector3 Vector3::Applied(const Quaternion &q) const noexcept
+    inline Vector3 Vector3::Applied(const Quaternion& q) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Apply(q);
         return _vec;
     }
 
-    inline void Vector3::Unproject(const Camera::Camera &camera) noexcept
+    inline void Vector3::Unproject(const Camera& camera) noexcept
     {
         // todo
     }
 
-    inline Vector3 Vector3::Unprojected(const Camera::Camera &camera) const noexcept
+    inline Vector3 Vector3::Unprojected(const Camera& camera) const noexcept
     {
         //todo
     }
 
-    inline void Vector3::TransformDirection(const Matrix4 &m) noexcept
+    inline void Vector3::TransformDirection(const Matrix4& m) noexcept
     {
         const double _x = mX, _y = mY, _z = mZ;
         mX = m[0] * _x + m[4] * _y + m[8] * _z;
@@ -303,14 +303,14 @@ namespace Three::Math
         mZ = m[2] * _x + m[6] * _y + m[10] * _z;
     }
 
-    inline Vector3 Vector3::TransformedDirection(const Matrix4 &m) const noexcept
+    inline Vector3 Vector3::TransformedDirection(const Matrix4& m) const noexcept
     {
         Vector3 _vec(*this);
         _vec.TransformDirection(m);
         return _vec;
     }
 
-    inline void Vector3::operator/=(const Vector3 &v)
+    inline void Vector3::operator/=(const Vector3& v)
     {
         if (v.mX == 0. || v.mY == 0. || v.mZ == 0.)
         {
@@ -332,7 +332,7 @@ namespace Three::Math
         mZ /= s;
     }
 
-    inline Vector3 Vector3::operator/(const Vector3 &v) const
+    inline Vector3 Vector3::operator/(const Vector3& v) const
     {
         if (v.mX == 0. || v.mY == 0. || v.mZ == 0.)
         {
@@ -350,31 +350,31 @@ namespace Three::Math
         return Vector3(mX / s, mY / s, mZ / s);
     }
 
-    inline void Vector3::Min(const Vector3 &v) noexcept
+    inline void Vector3::Min(const Vector3& v) noexcept
     {
         mX = min(mX, v.mX);
         mY = min(mY, v.mY);
         mZ = min(mZ, v.mZ);
     }
 
-    inline void Vector3::Max(const Vector3 &v) noexcept
+    inline void Vector3::Max(const Vector3& v) noexcept
     {
         mX = max(mX, v.mX);
         mY = max(mY, v.mY);
         mZ = max(mZ, v.mZ);
     }
 
-    inline Vector3 Vector3::Mined(const Vector3 &v) const noexcept
+    inline Vector3 Vector3::Mined(const Vector3& v) const noexcept
     {
         return Vector3(min(mX, v.mX), min(mY, v.mY), min(mZ, v.mZ));
     }
 
-    inline Vector3 Vector3::Maxed(const Vector3 &v) const noexcept
+    inline Vector3 Vector3::Maxed(const Vector3& v) const noexcept
     {
         return Vector3(max(mX, v.mX), max(mY, v.mY), max(mZ, v.mZ));
     }
 
-    inline void Vector3::Clamp(const Vector3 &minVec, const Vector3 &maxVec) noexcept
+    inline void Vector3::Clamp(const Vector3& minVec, const Vector3& maxVec) noexcept
     {
         mX = max(minVec.mX, min(maxVec.mX, mX));
         mY = max(minVec.mY, min(maxVec.mY, mY));
@@ -393,7 +393,7 @@ namespace Three::Math
         SetLength(max(minVal, min(maxVal, Length())));
     }
 
-    inline Vector3 Vector3::Clamped(const Vector3 &minVec, const Vector3 &maxVec) const noexcept
+    inline Vector3 Vector3::Clamped(const Vector3& minVec, const Vector3& maxVec) const noexcept
     {
         return Vector3(
             max(minVec.mX, min(maxVec.mX, mX)),
@@ -498,7 +498,7 @@ namespace Three::Math
             -mZ);
     }
 
-    inline double Vector3::Dot(const Vector3 &v) const noexcept
+    inline double Vector3::Dot(const Vector3& v) const noexcept
     {
         return mX * v.mX + mY * v.mY + mZ * v.mZ;
     }
@@ -518,7 +518,7 @@ namespace Three::Math
         return abs(mX) + abs(mY) + abs(mZ);
     }
 
-    inline double Vector3::ManhattanDistanceTo(const Vector3 &v) const noexcept
+    inline double Vector3::ManhattanDistanceTo(const Vector3& v) const noexcept
     {
         return abs(mX - v.mX) + abs(mY - v.mY) + abs(mZ - v.mZ);
     }
@@ -549,14 +549,14 @@ namespace Three::Math
         operator*=(l);
     }
 
-    inline void Vector3::Lerp(const Vector3 &v, double alpha) noexcept
+    inline void Vector3::Lerp(const Vector3& v, double alpha) noexcept
     {
         mX += (v.mX - mX) * alpha;
         mY += (v.mY - mY) * alpha;
         mZ += (v.mZ - mZ) * alpha;
     }
 
-    inline Vector3 Vector3::Lerped(const Vector3 &v, double alpha) const noexcept
+    inline Vector3 Vector3::Lerped(const Vector3& v, double alpha) const noexcept
     {
         return Vector3(
             mX + (v.mX - mX) * alpha,
@@ -564,7 +564,7 @@ namespace Three::Math
             mZ + (v.mZ - mZ) * alpha);
     }
 
-    inline void Vector3::Cross(const Vector3 &v) noexcept
+    inline void Vector3::Cross(const Vector3& v) noexcept
     {
         double _x = mX, _y = mY, _z = mZ;
         double _vx = v.mX, _vy = v.mY, _vz = v.mZ;
@@ -574,14 +574,14 @@ namespace Three::Math
         mZ = _x * _vy - _y * _vx;
     }
 
-    inline Vector3 Vector3::Crossed(const Vector3 &v) const noexcept
+    inline Vector3 Vector3::Crossed(const Vector3& v) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Cross(v);
         return _vec;
     }
 
-    inline void Vector3::Project(const Vector3 &v) noexcept
+    inline void Vector3::Project(const Vector3& v) noexcept
     {
         double _denominator = v.LengthSq();
         if (_denominator == 0.)
@@ -594,50 +594,50 @@ namespace Three::Math
         }
     }
 
-    inline void Vector3::Project(const Plane &plane) noexcept
+    inline void Vector3::Project(const Plane& plane) noexcept
     {
         operator-=(Projected(plane.Normal()));
     }
 
-    inline void Vector3::Project(const Camera::Camera &camera) noexcept
+    inline void Vector3::Project(const Camera& camera) noexcept
     {
         // todo
     }
 
-    inline Vector3 Vector3::Projected(const Vector3 &v) const noexcept
+    inline Vector3 Vector3::Projected(const Vector3& v) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Project(v);
         return _vec;
     }
 
-    inline Vector3 Vector3::Projected(const Plane &plane) const noexcept
+    inline Vector3 Vector3::Projected(const Plane& plane) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Project(plane);
         return _vec;
     }
 
-    inline Vector3 Vector3::Projected(const Camera::Camera &camera) const noexcept
+    inline Vector3 Vector3::Projected(const Camera& camera) const noexcept
     {
         Vector3 _vec(*this);
         _vec.Project(camera);
         return _vec;
     }
 
-    inline void Vector3::Reflect(const Plane &plane) noexcept
+    inline void Vector3::Reflect(const Plane& plane) noexcept
     {
-        const Vector3 &_pn = plane.Normal();
-        operator-=(_pn *Dot(_pn) * 2.);
+        const Vector3& _pn = plane.Normal();
+        operator-=(_pn * Dot(_pn) * 2.);
     }
 
-    inline const Vector3 Vector3::Reflected(const Plane &plane) const noexcept
+    inline const Vector3 Vector3::Reflected(const Plane& plane) const noexcept
     {
-        const Vector3 &_pn = plane.Normal();
-        return operator-(_pn *Dot(_pn) * 2.);
+        const Vector3& _pn = plane.Normal();
+        return operator-(_pn * Dot(_pn) * 2.);
     }
 
-    inline double Vector3::AngleTo(const Vector3 &v) const noexcept
+    inline double Vector3::AngleTo(const Vector3& v) const noexcept
     {
         const double _denominator = sqrt(LengthSq() * v.LengthSq());
         if (_denominator == 0.)
@@ -647,17 +647,17 @@ namespace Three::Math
         return acos(MathUtil::Clamp(Dot(v) / _denominator, -1., 1.));
     }
 
-    inline double Vector3::DistanceTo(const Vector3 &v) const noexcept
+    inline double Vector3::DistanceTo(const Vector3& v) const noexcept
     {
         return sqrt(DistanceToSquared(v));
     }
 
-    inline double Vector3::DistanceToSquared(const Vector3 &v) const noexcept
+    inline double Vector3::DistanceToSquared(const Vector3& v) const noexcept
     {
         return pow(mX - v.mX, 2.) + pow(mY - v.mY, 2.) + pow(mZ - v.mZ, 2.);
     }
 
-    inline void Vector3::SetFromSpherical(const Spherical &s) noexcept
+    inline void Vector3::SetFromSpherical(const Spherical& s) noexcept
     {
         SetFromSpherical(s.Radius(), s.Phi(), s.Theta());
     }
@@ -670,7 +670,7 @@ namespace Three::Math
         mZ = _sinPhiRadius * cos(theta);
     }
 
-    inline void Vector3::SetFromCylindrical(const Cylindrical &c) noexcept
+    inline void Vector3::SetFromCylindrical(const Cylindrical& c) noexcept
     {
         SetFromCylindrical(c.Radius(), c.Theta(), c.Y());
     }
@@ -682,12 +682,12 @@ namespace Three::Math
         mZ = radius * cos(theta);
     }
 
-    inline void Vector3::SetFromMatrixPosition(const Matrix4 &m) noexcept
+    inline void Vector3::SetFromMatrixPosition(const Matrix4& m) noexcept
     {
         Set(m[12], m[13], m[14]);
     }
 
-    inline void Vector3::SetFromMatrixScale(const Matrix4 &m) noexcept
+    inline void Vector3::SetFromMatrixScale(const Matrix4& m) noexcept
     {
         Vector3 _vec;
         _vec.SetFromMatrixColumn(m, 0);
@@ -698,7 +698,7 @@ namespace Three::Math
         Set(_sx, _sy, _vec.Length());
     }
 
-    inline void Vector3::SetFromMatrixColumn(const Matrix4 &m, const size_t index)
+    inline void Vector3::SetFromMatrixColumn(const Matrix4& m, const size_t index)
     {
         if (index < 4)
         {
@@ -711,7 +711,7 @@ namespace Three::Math
         }
     }
 
-    inline void Vector3::SetFromMatrix3Column(const Matrix3 &m, const size_t index)
+    inline void Vector3::SetFromMatrix3Column(const Matrix3& m, const size_t index)
     {
         if (index < 3)
         {
@@ -724,30 +724,30 @@ namespace Three::Math
         }
     }
 
-    inline bool Vector3::Equals(const Vector3 &v, uint32_t ulp) const noexcept
+    inline bool Vector3::Equals(const Vector3& v, uint32_t ulp) const noexcept
     {
         return MathUtil::AlmosetEquals(mX, v.mX, ulp) &&
-               MathUtil::AlmosetEquals(mY, v.mY, ulp) &&
-               MathUtil::AlmosetEquals(mZ, v.mZ, ulp);
+            MathUtil::AlmosetEquals(mY, v.mY, ulp) &&
+            MathUtil::AlmosetEquals(mZ, v.mZ, ulp);
     }
 
-    inline bool Vector3::operator==(const Vector3 &v) const noexcept
+    inline bool Vector3::operator==(const Vector3& v) const noexcept
     {
         return Equals(v);
     }
 
-    inline std::ostream &operator<<(std::ostream &os, const Vector3 &v)
+    inline std::ostream& operator<<(std::ostream& os, const Vector3& v)
     {
         os << "{type:'Vector3',"
-           << "x:"
-           << v.mX
-           << ",y:"
-           << v.mY
-           << ",z:"
-           << v.mZ
-           << "}";
+            << "x:"
+            << v.mX
+            << ",y:"
+            << v.mY
+            << ",z:"
+            << v.mZ
+            << "}";
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three
 #undef _USE_MATH_DEFINES

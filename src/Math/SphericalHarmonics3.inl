@@ -1,7 +1,7 @@
 
 #include "SphericalHarmonics3.h"
 
-namespace Three::Math
+namespace Three
 {
     inline SphericalHarmonics3::SphericalHarmonics3() noexcept
     {
@@ -186,4 +186,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

@@ -5,7 +5,7 @@
 #include "../../src/Math/Cylindrical.h"
 
 using namespace std;
-using namespace Three::Math;
+using namespace Three;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace ThreeUnitTest

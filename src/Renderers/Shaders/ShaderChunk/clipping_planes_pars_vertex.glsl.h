@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace Three::Shader
+namespace Three
 {
     const std::string Clipping_planes_pars_vertex = R"(
 #if NUM_CLIPPING_PLANES > 0

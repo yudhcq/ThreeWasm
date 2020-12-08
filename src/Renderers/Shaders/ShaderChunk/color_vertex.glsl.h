@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace Three::Shader
+namespace Three
 {
     const std::string Color_vertex = R"(
 #if defined( USE_COLOR ) || defined( USE_INSTANCING_COLOR )

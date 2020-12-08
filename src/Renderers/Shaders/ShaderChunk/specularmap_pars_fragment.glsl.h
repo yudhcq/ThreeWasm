@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Specularmap_pars_fragment = R"(
 #ifdef USE_SPECULARMAP

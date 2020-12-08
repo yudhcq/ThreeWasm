@@ -1,4 +1,4 @@
-
+﻿
 /**
  * @file Line3.h
  * @author yudonghai (yudhcq@163.com)
@@ -14,10 +14,10 @@
 #include "Vector3.h"
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学库命名空间
  */
-namespace Three::Math
+namespace Three
 {
     class Matrix4;
     /**
@@ -77,6 +77,6 @@ namespace Three::Math
          */
         Vector3 mEnd;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Line3.inl"

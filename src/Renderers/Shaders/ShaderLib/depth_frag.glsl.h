@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Depth_frag = R"(
 #if DEPTH_PACKING == 3200

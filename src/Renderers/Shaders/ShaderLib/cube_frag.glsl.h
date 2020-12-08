@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Cube_frag = R"(
 #include <envmap_common_pars_fragment>

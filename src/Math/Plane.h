@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Plane.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 平面类头文件
@@ -13,10 +13,10 @@
 #include "Vector3.h"
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学类命名空间
  */
-namespace Three::Math
+namespace Three
 {
     class Sphere;
     class Line3;
@@ -107,6 +107,6 @@ namespace Three::Math
          */
         double mConstant;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Plane.inl"

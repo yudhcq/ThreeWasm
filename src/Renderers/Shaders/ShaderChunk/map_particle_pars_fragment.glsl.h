@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Map_particle_pars_fragment = R"(
 #if defined( USE_MAP ) || defined( USE_ALPHAMAP )

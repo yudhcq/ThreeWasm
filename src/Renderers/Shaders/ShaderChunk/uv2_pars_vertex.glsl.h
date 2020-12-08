@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Uv2_pars_vertex = R"(
 #if defined( USE_LIGHTMAP ) || defined( USE_AOMAP )

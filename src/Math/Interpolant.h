@@ -1,8 +1,8 @@
 #pragma once
-namespace Three::Math
+namespace Three
 {
     class Interpolant
     {
     };
-} // namespace Three::Math
+} // namespace Three
 #include "Interpolant.inl"

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
 	inline Box2::Box2() noexcept : 
 		mMin(DBL_MAX, DBL_MAX), 
@@ -209,4 +209,4 @@ namespace Three::Math
 
 		return os;
 	}
-} // namespace Three::Math
+} // namespace Three

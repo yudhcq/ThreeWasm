@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Math
+namespace Three
 {
 class CubicInterpolant
 {

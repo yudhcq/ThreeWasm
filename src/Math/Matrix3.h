@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Matrix3.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 三维矩阵头文件
@@ -10,7 +10,7 @@
 #include <vector>
 #include <ostream>
 
-namespace Three::Math
+namespace Three
 {
     class Vector3;
     class Matrix4;
@@ -103,6 +103,6 @@ namespace Three::Math
          */
         double mElements[9];
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Matrix3.inl"

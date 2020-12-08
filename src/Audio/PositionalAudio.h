@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Audio
+namespace Three
 {
 class PositionalAudio{
 }; 

@@ -11,7 +11,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Vector4::Vector4() noexcept : mX(0.),
                                          mY(0.),
@@ -602,5 +602,5 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three
 #undef _USE_MATH_DEFINES

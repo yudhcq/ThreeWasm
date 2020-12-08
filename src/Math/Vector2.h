@@ -10,12 +10,12 @@
 #include <ostream>
 #include <vector>
 
-namespace Three::Core
+namespace Three
 {
 	class BufferAttribute;
-} // namespace Three::Core
+} // namespace Three
 
-namespace Three::Math
+namespace Three
 {
 	class Matrix3;
 	/**
@@ -534,6 +534,6 @@ namespace Three::Math
 	Vector2 operator*(double s, const Vector2& v) noexcept;
 	Vector2 operator+(const Vector2& v, double s) noexcept;
 	Vector2 operator+(double s, const Vector2& v) noexcept;
-} // namespace Three::Math
+} // namespace Three
 
 #include "Vector2.inl"

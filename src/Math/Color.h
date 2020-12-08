@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Color.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 颜色类头文件
@@ -15,10 +15,10 @@
 #include <map>
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学类命名空间
  */
-namespace Three::Math
+namespace Three
 {
     /**
      * @brief Color
@@ -148,6 +148,6 @@ namespace Three::Math
     public:
         static std::map<std::string, int> ColorKeyWorlds;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Color.inl"

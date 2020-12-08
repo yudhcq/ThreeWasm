@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Vsm_frag = R"(
 uniform sampler2D shadow_pass;

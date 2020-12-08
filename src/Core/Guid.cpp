@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace Three::Core
+namespace Three
 {
 Guid::Guid()
 {
@@ -47,4 +47,4 @@ const vector<uint8_t> Guid::GetByteArray() const
     return move(_guid);
 }
 
-} // namespace Three::Core
+} // namespace Three

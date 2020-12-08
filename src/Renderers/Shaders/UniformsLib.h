@@ -3,10 +3,10 @@
 #include <string>
 #include <memory>
 
-#include "Uniform.h"
-
-namespace Three::Shader
+namespace Three
 {
+    class Uniform;
+
     class UniformsLib
     {
     public:

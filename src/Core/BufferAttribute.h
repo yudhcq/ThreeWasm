@@ -1,7 +1,7 @@
 ﻿#pragma once
-namespace Three::Core
+namespace Three
 {
 class BufferAttribute
 {
 };
-} // namespace Three::Core
+} // namespace Three

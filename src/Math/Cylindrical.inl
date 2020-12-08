@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Cylindrical::Cylindrical() noexcept : mRadius(1.),
                                                mTheta(0.),
@@ -76,4 +76,4 @@ namespace Three::Math
            << "y:" << c.Y() << "}";
         return os;
     }
-} // namespace Three::Math
+} // namespace Three

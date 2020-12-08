@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Quaternion::Quaternion() noexcept : mX(0.),
                                                mY(0.),
@@ -319,7 +319,7 @@ namespace Three::Math
                           mW * q.mW - mX * q.mX - mY * q.mY - mZ * q.mZ);
     }
 
-    inline void Quaternion::FromBufferAttribute(const Core::BufferAttribute &attrbute, const size_t)
+    inline void Quaternion::FromBufferAttribute(const BufferAttribute &attrbute, const size_t)
     {
         // todo
     }
@@ -425,4 +425,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Lights
+namespace Three
 {
 class HemisphereLightProbe{
 }; 

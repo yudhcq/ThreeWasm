@@ -1,8 +1,8 @@
 #pragma once
 
-namespace Three::Core
+namespace Three
 {
 class Clock
 {
 };
-} // namespace Three::Core
+} // namespace Three

@@ -1,7 +1,7 @@
 #include "ShaderLib.h"
 #include "ShaderChunk.h"
 
-namespace Three::Shader
+namespace Three
 {
     ShaderLib::ShaderLib()
     {}
@@ -95,7 +95,8 @@ namespace Three::Shader
                 UniformsLib::GetFogUniformsLib(),
                 UniformsLib::GetLightsUniformsLib()
             );
-            lambert.mUniforms.AddUniform("emissive", &Math::Color(0), sizeof(Math::Color));
+            const Color _emissive;
+            lambert.mUniforms.AddUniform("emissive", &_emissive, sizeof(Color));
             lambert.mVertexShader = ShaderChunk::meshlambert_vert;
             lambert.mFragmentShader = ShaderChunk::meshlambert_frag;
         }
@@ -104,44 +105,72 @@ namespace Three::Shader
     }
 
     const ShaderLib& ShaderLib::GetPhongShaderLib()
-    {}
+    {
+        return phong;
+    }
 
     const ShaderLib& ShaderLib::GetStandardShaderLib()
-    {}
+    {
+        return standard;
+    }
 
     const ShaderLib& ShaderLib::GetToonShaderLib()
-    {}
+    {
+        return toon;
+    }
 
     const ShaderLib& ShaderLib::GetMatcapShaderLib()
-    {}
+    {
+        return matcap;
+    }
 
     const ShaderLib& ShaderLib::GetPointsShaderLib()
-    {}
+    {
+        return points;
+    }
 
     const ShaderLib& ShaderLib::GetDepthShaderLib()
-    {}
+    {
+        return depth;
+    }
 
     const ShaderLib& ShaderLib::GetNormalShaderLib()
-    {}
+    {
+        return normal;
+    }
 
     const ShaderLib& ShaderLib::GetSpriteShaderLib()
-    {}
+    {
+        return sprite;
+    }
 
     const ShaderLib& ShaderLib::GetBackgroundShaderLib()
-    {}
+    {
+        return background;
+    }
 
     const ShaderLib& ShaderLib::GetCubeShaderLib()
-    {}
+    {
+        return cube;
+    }
 
     const ShaderLib& ShaderLib::GetEquirectShaderLib()
-    {}
+    {
+        return equirect;
+    }
 
     const ShaderLib& ShaderLib::GetDistanceRGBAShaderLib()
-    {}
+    {
+        return distanceRGBA;
+    }
 
     const ShaderLib& ShaderLib::GetShadowShaderLib()
-    {}
+    {
+        return shadow;
+    }
 
     const ShaderLib& ShaderLib::GetPhysicalShaderLib()
-    {}
+    {
+        return physical;
+    }
 }

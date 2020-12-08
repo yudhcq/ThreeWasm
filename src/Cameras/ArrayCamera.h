@@ -1,8 +1,16 @@
 #pragma once
+#include <vector>
 
-namespace Three::Camera
+#include "PerspectiveCamera.h"
+
+namespace Three
 {
-class ArrayCamera
-{
-};
-} // namespace Three::Camera
+    class ArrayCamera: public PerspectiveCamera
+    {
+    public:
+        ArrayCamera();
+        std::vector<PerspectiveCamera>& Cameras();
+    private:
+        std::vector<PerspectiveCamera> mCameras;
+    };
+} // namespace Three

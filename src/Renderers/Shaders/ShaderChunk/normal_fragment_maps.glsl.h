@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Normal_fragment_maps = R"(
 #ifdef OBJECTSPACE_NORMALMAP

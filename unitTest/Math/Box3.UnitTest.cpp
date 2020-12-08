@@ -6,7 +6,7 @@
 #include "../../src/Math/Matrix4.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace Three::Math;
+using namespace Three;
 
 namespace ThreeUnitTest
 {

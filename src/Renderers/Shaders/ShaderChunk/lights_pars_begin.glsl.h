@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Lights_pars_begin = R"(
 uniform bool receiveShadow;

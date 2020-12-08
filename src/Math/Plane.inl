@@ -3,7 +3,7 @@
 #include "Line3.h"
 #include "Box3.h"
 
-namespace Three::Math
+namespace Three
 {
     inline Plane::Plane() noexcept : mNormal(1., 0., 0.),
         mConstant(0.)
@@ -262,4 +262,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

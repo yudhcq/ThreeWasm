@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Renderers
+namespace Three
 {
 class WebGLState{
 }; 

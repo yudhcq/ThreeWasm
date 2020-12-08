@@ -1,18 +1,20 @@
 #include <memory>
 #include "Uniform.h"
 
-namespace Three::Shader
+namespace Three
 {
-    inline Uniform::Uniform(size_t memorySize): 
-        mSize(memorySize),
-        mNeedUpdate(true)
+    inline Uniform::Uniform()
+    {
+    }
+
+    inline Uniform::Uniform(size_t memorySize) :
+        mSize(memorySize)
     {
         mValue = malloc(memorySize);
     }
 
-    inline Uniform::Uniform(const void* const value, size_t memorySize): 
-        mSize(memorySize),
-        mNeedUpdate(true)
+    inline Uniform::Uniform(const void* const value, size_t memorySize) :
+        mSize(memorySize)
     {
         mValue = malloc(memorySize);
         memcpy(mValue, value, memorySize);
@@ -29,7 +31,7 @@ namespace Three::Shader
 
     inline Uniform::Uniform(Uniform&& uniform)
     {
-        if (nullptr != uniform.mValue) 
+        if (nullptr != uniform.mValue)
         {
             if (nullptr != mValue)
             {
@@ -40,17 +42,25 @@ namespace Three::Shader
         }
     }
 
-
-    inline Uniform::Uniform(const Uniform &uniform)
+    inline Uniform::Uniform(const Uniform& uniform)
     {
+        if (nullptr != mValue)
+        {
+            free(mValue);
+        }
         mValue = malloc(uniform.mSize);
         memcpy(mValue, uniform.mValue, uniform.mSize);
     }
 
     inline Uniform& Uniform::operator=(const Uniform& uniform)
     {
+        if (nullptr != mValue)
+        {
+            free(mValue);
+        }
         mValue = malloc(uniform.mSize);
         memcpy(mValue, uniform.mValue, uniform.mSize);
+        mNeedUpdate = true;
         return *this;
     }
 
@@ -66,21 +76,6 @@ namespace Three::Shader
             uniform.mValue = nullptr;
         }
         return *this;
-    }
-
-    template<class T>
-    inline void Uniform::SetValue(const T& value)
-    {
-        if (sizeof(T) == mSize)
-        {
-            memcpy(mValue, &value, mSize);
-        }
-    }
-
-    template<class T>
-    inline const T& Uniform::GetValue() const noexcept
-    {
-        return *mValue;
     }
 
     inline size_t Uniform::GetSize() const noexcept

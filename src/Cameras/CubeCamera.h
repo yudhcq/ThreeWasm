@@ -1,7 +1,11 @@
 #pragma once
+#include "../Core//Object3D.h"
 
-namespace Three::Camera
+namespace Three
 {
-    class CubeCamera
-    {};
-} // namespace Three::Core
+    class CubeCamera: public Object3D
+    {
+    private:
+
+    };
+} // namespace Three

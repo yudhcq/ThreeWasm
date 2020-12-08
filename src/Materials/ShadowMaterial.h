@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Materials
+namespace Three
 {
 class ShadowMaterial{
 }; 

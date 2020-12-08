@@ -1,8 +1,8 @@
 #pragma once
 
-namespace Three::Core
+namespace Three
 {
 class DirectGeometry
 {
 };
-} // namespace Three::Core
+} // namespace Three

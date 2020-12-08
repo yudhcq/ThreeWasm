@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Project_vertex = R"(
 vec4 mvPosition = vec4( transformed, 1.0 );

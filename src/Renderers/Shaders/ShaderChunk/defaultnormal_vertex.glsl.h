@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace Three::Shader
+namespace Three
 {
     const std::string Defaultnormal_vertex = R"(
 vec3 transformedNormal = objectNormal;

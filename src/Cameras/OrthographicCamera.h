@@ -1,8 +1,8 @@
 #pragma once
 
-namespace Three::Camera
+namespace Three
 {
 class OrthographicCamera
 {
 };
-} // namespace Three::Camera
+} // namespace Three

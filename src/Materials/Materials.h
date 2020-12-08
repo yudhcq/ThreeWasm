@@ -1,7 +1,10 @@
 #pragma once
 
-namespace Three::Materials
+namespace Three
 {
-class Materials{
-}; 
+    class Materials 
+    {
+    public:
+    private:
+    };
 }

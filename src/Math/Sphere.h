@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Sphere.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 球类头文件
@@ -14,10 +14,10 @@
 #include "Vector3.h"
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学类命名空间
  */
-namespace Three::Math
+namespace Three
 {
     class Box3;
     class Plane;
@@ -85,6 +85,6 @@ namespace Three::Math
          */
         double mRadius;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Sphere.inl"

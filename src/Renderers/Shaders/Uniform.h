@@ -1,10 +1,11 @@
 #pragma once
 
-namespace Three::Shader
+namespace Three
 {
     class Uniform
     {
     public:
+        Uniform();
         Uniform(size_t size);
         Uniform(const void* const value, size_t size);
     
@@ -16,10 +17,19 @@ namespace Three::Shader
         Uniform& operator=(Uniform&& uniform);
 
         template<class T>
-        void SetValue(const T& value) noexcept;
+        void SetValue(const T& value) noexcept
+        {
+            if (sizeof(T) == mSize)
+            {
+                memcpy(mValue, &value, mSize);
+            }
+        }
 
         template<class T>
-        const T& GetValue() const noexcept;
+        const T& GetValue() const noexcept
+        {
+            return *reinterpret_cast<T*>(mValue);
+        }
 
         size_t GetSize() const noexcept;
 
@@ -27,9 +37,9 @@ namespace Three::Shader
 
         void SetNeedUpdate(bool update) noexcept;
     private:
-        void* mValue;
-        size_t mSize;
-        bool mNeedUpdate;
+        void* mValue = nullptr;
+        size_t mSize = 0;
+        bool mNeedUpdate = true;
     };
 }
 #include "Uniform.inl"

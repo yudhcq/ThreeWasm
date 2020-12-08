@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Cylindrical.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 圆柱坐标
@@ -10,10 +10,10 @@
 #pragma once
 #include <ostream>
 /**
- * @brief Three::Math
+ * @brief Three
  * 属性类命名空间
  */
-namespace Three::Math
+namespace Three
 {
     class Vector3;
     /**
@@ -63,6 +63,6 @@ namespace Three::Math
          */
         double mY;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Cylindrical.inl"

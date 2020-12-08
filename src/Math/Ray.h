@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Ray.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 射线类头文件
@@ -12,7 +12,7 @@
 
 #include "Vector3.h"
 
-namespace Three::Math
+namespace Three
 {
     class Sphere;
     class Plane;
@@ -102,6 +102,6 @@ namespace Three::Math
          */
         Vector3 mDirection;
     };
-} // namespace Three::Math
+} // namespace Three
 
 #include "Ray.inl"

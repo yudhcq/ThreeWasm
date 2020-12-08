@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Geometries
+namespace Three
 {
 class ParametricGeometry{
 }; 

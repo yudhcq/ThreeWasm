@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Euler.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 欧拉角类头文件
@@ -11,10 +11,10 @@
 #include <ostream>
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学类命名空间
  */
-namespace Three::Math
+namespace Three
 {
     /**
      * @brief EulerOrder
@@ -115,6 +115,6 @@ namespace Three::Math
         EulerOrder mOrder;
     };
 
-} // namespace Three::Math
+} // namespace Three
 
 #include "Euler.inl"

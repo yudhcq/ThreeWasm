@@ -1,4 +1,5 @@
-#include "UniformsLib.h"
+﻿#include "UniformsLib.h"
+#include "Uniform.h"
 #include "../../Math/Color.h"
 #include "../../Textures/Texture.h"
 #include "../../Math/Matrix3.h"
@@ -6,7 +7,7 @@
 #include <memory>
 #include <cstdarg>
 
-namespace Three::Shader
+namespace Three
 {
     inline UniformsLib::UniformsLib() noexcept
     {};
@@ -87,15 +88,20 @@ namespace Three::Shader
     {
         if (common.empty())
         {
-            common.AddUniform("diffuse", &Math::Color(0xee), sizeof(Math::Color));
+            const Color _c(0xeeeeee);
+            common.AddUniform("diffuse", &_c, sizeof(Color));
             const float _opacity = 1.0;
             common.AddUniform("opacity", &_opacity, 4);
-            common.AddUniform("map", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
-            common.AddUniform("uvTransform", &Math::Matrix3(), sizeof(Math::Matrix3));
-            common.AddUniform("uv2Transform", &Math::Matrix3(), sizeof(Math::Matrix3));
-            common.AddUniform("alphaMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
+            const shared_ptr<Texture> _map = nullptr;
+            common.AddUniform("map", &_map, sizeof(std::shared_ptr<Texture>));
+            const Matrix3 _uvTransform;
+            const Matrix3 _uv2Transform;
+            common.AddUniform("uvTransform", &_uvTransform, sizeof(Matrix3));
+            common.AddUniform("uv2Transform", &_uv2Transform, sizeof(Matrix3));
+            const shared_ptr<Texture> _alphaMap = nullptr;
+            common.AddUniform("alphaMap", &_alphaMap, sizeof(std::shared_ptr<Texture>));
         }
-        
+
         return common;
     }
 
@@ -103,7 +109,8 @@ namespace Three::Shader
     {
         if (specularmap.empty())
         {
-            specularmap.AddUniform("specularMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
+            const shared_ptr<Texture> _specularMap = nullptr;
+            specularmap.AddUniform("specularMap", &_specularMap, sizeof(std::shared_ptr<Texture>));
         }
         return specularmap;
     }
@@ -112,11 +119,12 @@ namespace Three::Shader
     {
         if (envmap.empty())
         {
-            envmap.AddUniform("envMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
-            const float _flipEnvMap = -1.;
-            const float _reflectivity = 1.;
-            const float _refractionRatio = 0.98;
-            const float _maxMipLevel = 0.;
+            const shared_ptr<Texture> _envMap = nullptr;
+            envmap.AddUniform("envMap", &_envMap, sizeof(std::shared_ptr<Texture>));
+            const float _flipEnvMap = -1.f;
+            const float _reflectivity = 1.f;
+            const float _refractionRatio = 0.98f;
+            const float _maxMipLevel = 0.f;
             envmap.AddUniform("flipEnvMap", &_flipEnvMap, 4);
             envmap.AddUniform("reflectivity", &_reflectivity, 4);
             envmap.AddUniform("refractionRatio", &_refractionRatio, 4);
@@ -129,7 +137,8 @@ namespace Three::Shader
     {
         if (aomap.empty())
         {
-            aomap.AddUniform("aoMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
+            const shared_ptr<Texture> _aoMap = nullptr;
+            aomap.AddUniform("aoMap", &_aoMap, sizeof(std::shared_ptr<Texture>));
             const float _aoMapIntensity = -1.;
             aomap.AddUniform("aoMapIntensity", &_aoMapIntensity, 4);
         }
@@ -140,7 +149,8 @@ namespace Three::Shader
     {
         if (lightmap.empty())
         {
-            lightmap.AddUniform("lightMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
+            const shared_ptr<Texture> _lightMap = nullptr;
+            lightmap.AddUniform("lightMap", &_lightMap, sizeof(std::shared_ptr<Texture>));
             const float _lightMapIntensity = -1.;
             lightmap.AddUniform("lightMapIntensity", &_lightMapIntensity, 4);
         }
@@ -151,7 +161,8 @@ namespace Three::Shader
     {
         if (emissivemap.empty())
         {
-            emissivemap.AddUniform("emissiveMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
+            const shared_ptr<Texture> _emissiveMap = nullptr;
+            emissivemap.AddUniform("emissiveMap", &_emissiveMap, sizeof(std::shared_ptr<Texture>));
         }
         return emissivemap;
     }
@@ -160,7 +171,8 @@ namespace Three::Shader
     {
         if (bumpmap.empty())
         {
-            bumpmap.AddUniform("bumpMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
+            const shared_ptr<Texture> _bumpMap = nullptr;
+            bumpmap.AddUniform("bumpMap", &_bumpMap, sizeof(std::shared_ptr<Texture>));
             const float _bumpScale = 1.;
             lightmap.AddUniform("bumpScale", &_bumpScale, 4);
         }
@@ -171,8 +183,10 @@ namespace Three::Shader
     {
         if (normalmap.empty())
         {
-            normalmap.AddUniform("normalMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
-            normalmap.AddUniform("normalScale", &Math::Vector2(1.), sizeof(Math::Vector2));
+            const shared_ptr<Texture> _normalMap = nullptr;
+            normalmap.AddUniform("normalMap", &_normalMap, sizeof(std::shared_ptr<Texture>));
+            const Vector2 _normalScale(1.);
+            normalmap.AddUniform("normalScale", &_normalScale, sizeof(Vector2));
         }
         return normalmap;
     }
@@ -181,7 +195,8 @@ namespace Three::Shader
     {
         if (displacementmap.empty())
         {
-            displacementmap.AddUniform("displacementMap", &std::make_shared<Textures::Texture>(nullptr), sizeof(std::shared_ptr<Textures::Texture>));
+            const shared_ptr<Texture> _displacementMap = nullptr;
+            displacementmap.AddUniform("displacementMap", &_displacementMap, sizeof(std::shared_ptr<Texture>));
             const float _displacementScale = 1.;
             const float _displacementBias = 0.;
             displacementmap.AddUniform("displacementScale", &_displacementScale, 4);
@@ -191,29 +206,43 @@ namespace Three::Shader
     }
 
     const UniformsLib& UniformsLib::GetRoughnessmapUniformsLib()
-    {}
+    {
+        return roughnessmap;
+    }
 
     const UniformsLib& UniformsLib::GetMetalnessmapUniformsLib()
-    {}
+    {
+        return metalnessmap;
+    }
 
     const UniformsLib& UniformsLib::GetGradientmapUniformsLib()
-    {}
+    {
+        return gradientmap;
+    }
 
     const UniformsLib& UniformsLib::GetFogUniformsLib()
-    {}
+    {
+        return fog;
+    }
 
     const UniformsLib& UniformsLib::GetLightsUniformsLib()
-    {}
+    {
+        return lights;
+    }
 
     const UniformsLib& UniformsLib::GetPointsUniformsLib()
-    {}
+    {
+        return points;
+    }
 
     const UniformsLib& UniformsLib::GetSpriteUniformsLib()
-    {}
+    {
+        return sprite;
+    }
 
     void UniformsLib::MergeUniformsLibs(size_t count, ...)
     {
-        if (count > 0) 
+        if (count > 0)
         {
             std::va_list _arg_list;
             va_start(_arg_list, count);

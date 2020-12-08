@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Objects
+namespace Three
 {
 class SkinnedMesh{
 }; 

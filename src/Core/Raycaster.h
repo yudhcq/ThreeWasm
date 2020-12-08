@@ -1,8 +1,12 @@
 #pragma once
 
-namespace Three::Core
+namespace Three
 {
-class Raycaster
-{
-};
-} // namespace Three::Core
+    struct Intersection
+    {
+
+    };
+    class Raycaster
+    {
+    };
+} // namespace Three

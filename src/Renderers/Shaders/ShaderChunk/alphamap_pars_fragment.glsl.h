@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace Three::Shader
+namespace Three
 {
     const std::string Alphamap_pars_fragment = R"(
 #ifdef USE_ALPHAMAP

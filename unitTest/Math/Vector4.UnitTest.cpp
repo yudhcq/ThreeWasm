@@ -5,7 +5,7 @@
 #include <sstream>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace Three::Math;
+using namespace Three;
 using namespace std;
 
 namespace ThreeUnitTest

@@ -134,7 +134,7 @@
 #include "ShaderLib/vsm_frag.glsl.h"
 #include "ShaderLib/vsm_vert.glsl.h"
 
-namespace Three::Shader
+namespace Three
 {
     std::string ShaderChunk::alphamap_fragment = Alphamap_fragment;
     std::string ShaderChunk::alphamap_pars_fragment = Alphamap_pars_fragment;

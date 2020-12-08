@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Textures
+namespace Three
 {
 class CanvasTexture{
 }; 

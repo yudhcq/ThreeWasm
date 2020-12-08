@@ -6,7 +6,7 @@
 
 namespace ThreeUnitTest
 {
-    using namespace Three::Math;
+    using namespace Three;
     using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
     TEST_CLASS(PlaneUintTest)

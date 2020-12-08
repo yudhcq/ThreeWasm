@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Ray::Ray() noexcept
     {
@@ -486,4 +486,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Box3.h
  * @author yudonghai (yudhcq@163.com)
  * @brief 三位盒子类头文件
@@ -13,17 +13,17 @@
 
 #include "Vector3.h"
 
-namespace Three::Core
+namespace Three
 {
 	class BufferAttrobute;
 	class Object3D;
-} // namespace Three::Core
+} // namespace Three
 
 /**
- * @brief Three::Math
+ * @brief Three
  * 数学类命名空间
  */
-namespace Three::Math
+namespace Three
 {
 	class Sphere;
 	class Plane;
@@ -296,6 +296,6 @@ namespace Three::Math
 		 */
 		Vector3 mMax;
 	};
-} // namespace Three::Math
+} // namespace Three
 
 #include "Box3.inl"

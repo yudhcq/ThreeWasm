@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace Three::Math
+namespace Three
 {
     inline Matrix3::Matrix3() noexcept
     {
@@ -312,4 +312,4 @@ namespace Three::Math
         return os;
     }
 
-} // namespace Three::Math
+} // namespace Three

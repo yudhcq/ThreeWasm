@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Extras
+namespace Three
 {
 class CubicBezierCurve{
 }; 

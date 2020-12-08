@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Three::Scenes
+namespace Three
 {
 class Scene{
 }; 
