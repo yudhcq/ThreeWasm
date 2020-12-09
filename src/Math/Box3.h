@@ -13,18 +13,13 @@
 
 #include "Vector3.h"
 
-namespace Three
-{
-	class BufferAttrobute;
-	class Object3D;
-} // namespace Three
-
 /**
  * @brief Three
  * 数学类命名空间
  */
 namespace Three
 {
+	class Object3D;
 	class Sphere;
 	class Plane;
 	class Triangle;

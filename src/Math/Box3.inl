@@ -7,8 +7,6 @@
 #include "Triangle.h"
 #include "Matrix4.h"
 
-#include "../Core/BufferAttribute.h"
-
 using namespace std;
 
 namespace Three
